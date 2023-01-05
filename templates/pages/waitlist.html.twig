@@ -1,0 +1,58 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+	{% set statusClass = {
+		'Waiting': 'white',
+		'Contacted': 'blue-5',
+		'Done': 'grey-1',
+	} %}
+
+	<div class="row">
+		<div class="col-12">
+			<table class="w-100 / table table-bordered table-hover">
+				<thead>
+				<tr class="table-primary / fw-700">
+					<th scope="col" class="col-3">
+						Person's name
+					</th>
+					<th scope="col" class="col-2 text-center">
+						Source
+					</th>
+					<th scope="col" class="text-center">
+						Request
+					</th>
+					<th scope="col" class="col-1 text-center">
+						Date
+					</th>
+					<th scope="col" class="col-1 text-center">
+						Status
+					</th>
+				</tr>
+				</thead>
+				<tbody class="table-group-divider">
+				{% for item in content.waitlist_items|sort((a, b) => a.date <=> b.date) %}
+					<tr class="bg-{{ statusClass[item.status] }}">
+						<th scope="row">
+							{{ item.name }}
+						</th>
+						<td class="text-center">
+							{{ item.source }}
+						</td>
+						<td class="text-center">
+							{{ item.request|raw }}
+						</td>
+						<td class="text-center">
+							{{ item.date|date("d.m.Y") }}
+						</td>
+						<td class="text-center">
+							{{ item.status }}
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}

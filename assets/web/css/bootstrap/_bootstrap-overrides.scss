@@ -1,0 +1,375 @@
+/*
+
+  Bootstrap Overrides
+  ----------------------------------
+
+*/
+
+
+// ----------------------------------
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+// ----------------------------------
+$enable-caret: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-smooth-scroll: true;
+$enable-grid-classes: true;
+$enable-cssgrid: false;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: true;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+
+
+// ----------------------------------
+// Colours
+// ----------------------------------
+
+// All custom colours
+$custom-colors:(
+	"white": #ffffff,
+	"black": #000000,
+	"blue-1": #3BA4FF,
+	"blue-2": #004E93,
+	"blue-3": #275B89,
+	"blue-4": #003461,
+	"blue-5": #e9f5ff,
+	"red-1": #B30A18,
+	"red-2": #9d2803,
+	"red-3": #c12b0c,
+	"red-4": #A9280F,
+	"red-5": rgba(169, 40, 15, 0.15),
+	"orange-1": #F26430,
+	"orange-2": #BC3908,
+	"yellow-1": #F6AA1C,
+	"yellow-2": #f9c970,
+	"yellow-3": #f9edd6,
+	"green-1": #0A6700,
+	"green-2": #407807,
+	"green-3": #134611,
+	"green-4": #485c2e,
+	"brown-1": #32241b,
+	"brown-2": #E7EBC5,
+	"grey-1": #D3D3D3,
+);
+
+// Override the Bootstrap theme colours (do not remove !default)
+$primary: map-get($custom-colors, "blue-4");
+$secondary: map-get($custom-colors, "yellow-2");
+
+$info: map-get($custom-colors, "black");
+$success: map-get($custom-colors, "black");
+$warning: map-get($custom-colors, "yellow-1");
+$danger: map-get($custom-colors, "red-1");
+
+$light: #ffffff;
+$dark: #000000;
+
+$theme-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"success": $success,
+	"info": $info,
+	"warning": $warning,
+	"danger": $danger,
+	"light": $light,
+	"dark": $dark,
+	"white": #ffffff,
+	"black": #000000
+);
+
+// Body colours
+$body-bg: #ffffff;
+$body-color: $dark;
+
+
+// ----------------------------------
+// Components
+// Define common padding and border radius sizes and more.
+// ----------------------------------
+$component-active-color: #ffffff;
+$component-active-bg: $primary;
+$border-radius: 5px;
+$border-radius-sm: 5px;
+$border-radius-lg: 5px;
+$border-radius-pill: 50rem;
+$border-width: 1px;
+
+
+//// scss-docs-start box-shadow-variables
+$box-shadow:                  0 .5rem 1rem rgba(#000, 0.08) ;
+//$box-shadow-sm:               0 .125rem .25rem rgba($black, .075);
+//$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+//$box-shadow-inset:            inset 0 1px 2px rgba($black, .075);
+//// scss-docs-end box-shadow-variables
+
+
+// ----------------------------------
+// Spacing
+// ----------------------------------
+$spacer: 1.5rem;
+$spacers: (
+		0: 0,
+		1: ($spacer * 0.25),
+		2: ($spacer * 0.5),
+		3: ($spacer * 0.75),
+		4: $spacer,
+		5: ($spacer * 1.25),
+		6: ($spacer * 1.5),
+		7: ($spacer * 2),
+		8: ($spacer * 2.25),
+		9: ($spacer * 2.5),
+		10: ($spacer * 3),
+		11: ($spacer * 3.5),
+		12: ($spacer * 4),
+		13: ($spacer * 4.5),
+		14: ($spacer * 5),
+		15: ($spacer * 5.5),
+		16: ($spacer * 6),
+		17: ($spacer * 7),
+		18: ($spacer * 7.5),
+		19: ($spacer * 8),
+		20: ($spacer * 10)
+);
+
+$font-sizes: ();
+@for $i from 1 through 100 {
+	$fs_rem: rem($i);
+	$font-sizes: map-merge(($i: $fs_rem), $font-sizes);
+}
+
+
+// ----------------------------------
+// Aspect Ratio
+// ----------------------------------
+$aspect-ratios: (
+	"1x1": 100%,
+	"4x3": calc(3 / 4 * 100%),
+	"4x4": calc(4 / 4 * 100%),
+	"12x8": calc(8 / 12 * 100%),
+	"16x9": calc(9 / 16 * 100%),
+	"21x9": calc(9 / 21 * 100%),
+	"23x9": calc(9 / 23 * 100%)
+);
+
+
+// ----------------------------------
+// Border Width
+// ----------------------------------
+$border-widths: (
+	1: 1px,
+	2: 2px,
+	3: 3px,
+	4: 4px,
+	5: 5px,
+	6: 6px,
+	7: 7px,
+	8: 8px,
+	9: 9px,
+	10: 10px
+);
+
+
+// ----------------------------------
+// Grid breakpoints
+// ----------------------------------
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+	xxxl: 1640px
+);
+
+
+// ----------------------------------
+// Grid containers
+// ----------------------------------
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1340px,
+	xxxl: 1545px
+);
+
+
+// ----------------------------------
+// Typography
+// Font, line-height, and color for body text, headings, and more.
+// ----------------------------------
+$ff-1: "Helvetica", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$ff-2: "Signika Negative", "Helvetica", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif: $ff-1;
+
+// Default font styles
+$font-size-base: 1.2rem; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * .875;
+$font-size-lg: $font-size-base * 1.25;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-bolder: 700;
+
+$font-weight-base: $font-weight-normal;
+
+$line-height-base: 1.5;
+$line-height-sm: 1.125;
+$line-height-lg: 2;
+
+$dt-font-weight: 700;
+
+
+// Headings
+$h1-font-size: $font-size-base * 2.3;
+$h2-font-size: $font-size-base * 1.8;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 1.3;
+$h5-font-size: $font-size-base * 1.2;
+$h6-font-size: $font-size-base * 1.1;
+$headings-margin-bottom: divide($spacer, 3);
+$headings-font-weight: 700;
+$headings-line-height: 1.1;
+$headings-color:map-get($custom-colors, "black");
+
+// Display Headings
+$display-font-sizes: (
+	1: 3.6rem,
+	2: 3.3rem,
+	3: 3.1rem,
+	4: 2.9rem,
+	5: 2.75rem,
+	6: 2.5rem
+);
+$display-font-weight: 900;
+
+// Lead
+$lead-font-size: $font-size-base * 1.4;
+$lead-font-weight: $font-weight-base;
+
+// Style anchor elements.
+$link-color: map-get($custom-colors, "red-4");
+$link-shade-percentage: 0%;
+$link-hover-decoration: none;
+
+
+// ----------------------------------
+// Tables
+// ----------------------------------
+$table-cell-padding-y: .8rem;
+$table-cell-padding-x: .8rem;
+$table-bg-scale: 0%;
+
+
+	// ----------------------------------
+// Buttons + Forms
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+// ----------------------------------
+$input-btn-padding-y: .5rem;
+$input-btn-padding-x: 1rem;
+$input-btn-padding-y-lg: .95rem;
+$input-btn-padding-x-lg: 1.1rem;
+$input-btn-focus-color-opacity: .25;
+$input-btn-focus-color: rgba(map-get($custom-colors, "black"), $input-btn-focus-color-opacity);
+
+
+// ----------------------------------
+// Buttons
+// For each of Bootstrap's buttons, define text, background, and border color.
+// ----------------------------------
+$btn-padding-x: 1.5rem;
+$btn-padding-x-sm: 0.85rem;
+$btn-padding-x-lg: 2rem;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: 5px;
+$btn-border-radius-sm: 5px;
+$btn-border-radius-lg: 5px;
+
+$btn-border-width: 2px;
+
+$btn-font-size-sm: 0.8rem;
+$btn-font-size: 0.9rem;
+
+// Hover and active state shades+tints
+$btn-hover-bg-shade-amount: 40%;
+$btn-hover-bg-tint-amount: 40%;
+$btn-hover-border-shade-amount: 40%;
+$btn-hover-border-tint-amount: 40%;
+$btn-active-bg-shade-amount: 5%;
+$btn-active-bg-tint-amount: 5%;
+$btn-active-border-shade-amount: 5%;
+$btn-active-border-tint-amount: 5%;
+
+$btn-font-weight: $font-weight-bold;
+$btn-box-shadow: none;
+$btn-focus-width: 0;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-disabled-opacity: 0.35;
+
+
+// ----------------------------------
+// Forms
+// ----------------------------------
+$input-line-height: 1.45;
+$input-color: $dark;
+$input-border-color: map-get($custom-colors, "black");
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
+$input-disabled-bg: #ffffff;
+
+// Label
+$form-label-margin-bottom: .3rem;
+$form-label-font-size: .9rem;
+$form-label-font-weight: bold;
+$form-label-color: $body-color;
+
+// Check
+$form-check-input-focus-box-shadow: none;
+$form-check-input-checked-color: $dark;
+$form-check-input-width: 1.575em;
+$form-check-margin-bottom: 0.5rem;
+
+// Select
+$form-select-bg-size: 14px 7px;
+$form-select-indicator-color: $dark;
+$form-select-indicator: url("data:image/svg+xml,%3Csvg width='15' height='8' viewBox='0 0 15 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.4 0.671862C14.4 0.843099 14.3345 1.01616 14.2052 1.14732L7.67172 7.72904C7.4114 7.99136 6.98906 7.99136 6.73056 7.72904L0.19524 1.1455C-0.0650804 0.883177 -0.0650804 0.458726 0.19524 0.196404C0.45556 -0.065917 0.877899 -0.0659171 1.1364 0.196404L7.20023 6.30631L13.2641 0.198226C13.5244 -0.0640956 13.9467 -0.0640956 14.2052 0.198226C14.3345 0.327565 14.4 0.498803 14.4 0.671862Z' fill='#{$form-select-indicator-color}'/%3E%3C/svg%3E%0A");
+$form-select-focus-box-shadow: none;
+
+
+// ----------------------------------
+// Breadcrumb
+// ----------------------------------
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-font-size: 0.875rem;
+$breadcrumb-active-color: $secondary;
+$breadcrumb-divider-color: $secondary;
+$breadcrumb-divider: quote(">");
+
+
+// ----------------------------------
+// Carousel
+// ----------------------------------
+
+
+// ----------------------------------
+// Accordion
+// ----------------------------------
+$accordion-button-icon: url('data:image/svg+xml,<svg width="18" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#2C4251" d="M.5 6.47h17V8.2H.5z"/><path fill="#2C4251" d="M8 14.67V0h2v14.67z"/></svg>');
+$accordion-button-active-icon: url('data:image/svg+xml,<svg width="18" height="3" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#2C4251" d="M.5.47h17V2.2H.5z"/></svg>');

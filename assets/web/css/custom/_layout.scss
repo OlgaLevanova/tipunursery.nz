@@ -1,0 +1,24 @@
+/*
+
+  Layout
+  ----------------------------------
+  Custom layout rules.
+
+*/
+html{
+  scroll-behavior: smooth;
+}
+body {
+  display: flex;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+.header,
+.footer {
+  flex-shrink: 0;
+}
+.content {
+  flex-grow: 1;
+}

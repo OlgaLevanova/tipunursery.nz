@@ -1,0 +1,79 @@
+/*
+
+  Type
+  ----------------------------------
+  Custom type rules.
+
+*/
+
+// https://davidwalsh.name/font-smoothing
+body {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4{
+  letter-spacing: -0.04em;
+}
+
+// Break really long email address inside small containers
+// and make default links look better
+a{
+  //color: inherit;
+  word-break: break-word;
+}
+
+// Font-size
+// ----------------------------------
+@each $key, $value in $font-sizes {
+  @each $key2, $value2 in $grid-breakpoints {
+    @include media-breakpoint-up($key2) {
+      .fs-#{$key2}-#{$key}{
+        font-size:$value !important;
+      }
+    }
+  }
+}
+
+// Line-height
+// ----------------------------------
+@for $i from 0 through 2 {
+  @for $j from 0 through 9 {
+    .lh-#{$i}-#{$j}{
+      $k:$i + $j * 0.1;
+      line-height:#{ $k } !important;
+    }
+  }
+}
+
+// Line-weight
+// ----------------------------------
+@for $i from 1 through 9 {
+  $k:$i * 100;
+  .fw-#{$k}{
+    font-weight:#{ $k } !important;
+  }
+}
+
+// Letter spacing
+// ----------------------------------
+@for $i from 0 through 9 {
+  .ls-#{$i}{
+    letter-spacing:#{ $i }px !important;
+  }
+  @for $j from 0 through 9 {
+    $k:$i + $j * 0.1;
+    .ls-#{$i}-#{$j}{
+      letter-spacing:#{ $k }px !important;
+    }
+  }
+}
+
+.ff-2{
+  font-family:$ff-2;
+}

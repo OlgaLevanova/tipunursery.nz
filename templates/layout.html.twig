@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block header %}
+  {% include 'includes/_header.html.twig' %}
+{% endblock %}
+
+
+{% block body %}
+  <main class="content / py-6">
+    <div class="container">
+      <h1 class="mt-6 mb-4">{{ pageTitle is defined ? pageTitle : content.title }}</h1>
+
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+{% endblock %}
+
+{% block footer %}
+  {% include 'includes/_footer.html.twig' %}
+{% endblock %}

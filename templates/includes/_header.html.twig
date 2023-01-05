@@ -1,0 +1,37 @@
+<header class="header / text-light / border border-0 border-bottom border-4 border-blue-4">
+	<div class="container">
+		<div class="pt-4 pb-4">
+			<div class="row / align-items-center">
+				<div class="col-12 col-lg-7 / pb-3 pb-lg-0 / text-center text-lg-start">
+					<div class="ff-2 fs-30 fs-md-60 fw-700 lh-1-1">
+						<a href="/" class="text-blue-4 lh-1-0 / text-decoration-none">
+{#							<img src="/assets/images/logo.png" alt="Tautoru" width="100" height="100">#}
+							<span class="d-block d-sm-inline">Tipu Nursery</span>
+							<span class="d-block / fs-30 fw-600">NZ native plants</span>
+						</a>
+					</div>
+				</div>
+				<div class="col-12 col-lg-5">
+					<nav aria-label="Main Menu">
+						<ul role="menu" itemscope="" itemtype="" class="row justify-content-center justify-content-lg-end / m-0 / fw-bold / list-unstyled">
+							{% for item in sulu_navigation_root_flat('top-menu') %}
+								{% set activeItem = request is defined and sulu_navigation_is_active(request.resourceLocator, item.url) %}
+								<li class="col-auto / px-0">
+									<a
+											href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+											title="{{ item.title }}"
+											itemprop="name"
+											{% if activeItem %}aria-current="page"{% endif %}
+											class="btn / px-2 {{ activeItem ? 'bg-blue-4 text-yellow-2' : 'text-blue-4' }} / fs-14 fs-sm-18 text-decoration-none"
+									>
+										<span>{{ item.title }}</span>
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

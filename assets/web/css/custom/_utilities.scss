@@ -1,0 +1,65 @@
+/*
+
+  Utilities
+  ----------------------------------
+  Custom utilities
+
+*/
+
+// Ratio
+// ----------------------------------
+.ratio-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.aspect-ration-image{
+  height:auto;
+  max-width:100%;
+  aspect-ratio:attr(width) / attr(height);
+}
+
+// Object Fit
+// ----------------------------------
+.object-fit-cover{
+  object-fit: cover !important;
+}
+.object-fit-contain{
+  object-fit: contain !important;
+}
+.object-fit-fill{
+  object-fit: fill !important;
+}
+
+// Border radius
+// ----------------------------------
+@for $i from 0 through 20 {
+  .br-#{$i}{
+    border-radius:#{ $i }px !important;
+  }
+}
+
+@each $color, $value in $custom-colors {
+  .bg-#{$color}{
+    background-color:#{$value} !important; /* stylelint-disable-line */
+  }
+  .text-#{$color}{
+    color:#{$value} !important; /* stylelint-disable-line */
+  }
+  .border-color-#{$color}{
+    border-color:#{$value} !important; /* stylelint-disable-line */
+  }
+}
+
+.img-hover{
+  img{
+    transition:all 0.2s;
+  }
+  :hover{
+    img{
+      transform:scale(1.2);
+    }
+  }
+}

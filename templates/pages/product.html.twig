@@ -1,0 +1,59 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {{ content.article|raw }}
+
+    {% set product_data = sulu_content_load(content.product_page, {'image_preview': 'image_preview'}) %}
+
+    <div class="row">
+        {% if product_data.content.image_preview %}
+            <div class="col-12 col-lg-4">
+                <img src="{{ product_data.content.image_preview.url }}" alt="{{ content.title }}" class="mw-100">
+            </div>
+        {% endif %}
+        <div class="col-12 {{ product_data.content.image_preview ? 'col-lg-8' : '' }}">
+            <table class="w-100 / table table-bordered table-hover">
+                <thead>
+                <tr class="table-primary / fw-700">
+                    <th scope="col">
+                        Bag size
+                    </th>
+                    <th scope="col" class="text-center">
+                        Available number
+                    </th>
+                    <th scope="col" class="text-center">
+                        Price per bug, NZD
+                    </th>
+                    <th scope="col" class="text-center">
+                        Is it available
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                {% for item in content.prices_options %}
+                    <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
+                        <th scope="row">
+                            {{ item.bag_size }}
+                        </th>
+                        <td class="text-center">
+                            {{ item.number }}
+                        </td>
+                        <td class="text-center">
+                            {{ item.price }}
+                        </td>
+                        <td class="text-center">
+                            {{ item.is_available ? 'Yes' : 'No' }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="mt-6">
+        <sulu-link href="{{ content.product_page }}">Read</sulu-link> about {{ content.title }} in Library
+    </div>
+{% endblock %}

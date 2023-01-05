@@ -1,0 +1,66 @@
+/*
+
+  Bootstrap Utilities API Configuration
+  -----------------------------------------
+  https://getbootstrap.com/docs/5.0/utilities/api/#using-the-api
+
+*/
+
+$utilities: map-merge(
+		$utilities,
+		(
+			"all-text-colors": (
+				property: color,
+				class: text,
+				values: map-get-key-value($custom-colors)
+			),
+			"all-bg-colors": (
+				property: background-color,
+				class: bg,
+				values: map-get-key-value($custom-colors)
+			),
+			"all-border-colors": (
+				property: border-color,
+				class: border,
+				values: map-get-key-value($custom-colors)
+			),
+			"position": (
+				property: position,
+				class: position,
+				responsive: true,
+				values: (
+					absolute: absolute,
+					relative: relative
+				)
+			),
+			// todo: make design system example
+			"width": (
+				property: width,
+				class: w,
+				responsive: true,
+				values: (
+					20: 20%,
+					25: 25%,
+					40: 40%,
+					50: 50%,
+					60: 60%,
+					75: 75%,
+					80: 80%,
+					100: 100%,
+					auto: auto
+				)
+			),
+			// todo: make design system example
+			"opacity": (
+				property: opacity,
+				class: o,
+				values: (
+					0: 0,
+					25: .25,
+					50: .5,
+					75: .75,
+					100: 1,
+				)
+			)
+		)
+);

@@ -1,0 +1,20 @@
+.home-tile{
+	&:nth-child(1){
+		a{
+			background:url('/public/assets/images/cabbage-tree.jpg') no-repeat center / cover;
+
+			>span{
+				background:rgba($secondary, 0.9);
+			}
+		}
+	}
+	&:nth-child(2){
+		a{
+			background:url('/public/assets/images/totara.jpg') no-repeat center / cover;
+
+			>span{
+				background:rgba($primary, 0.9);
+			}
+		}
+	}
+}

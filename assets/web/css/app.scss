@@ -1,0 +1,41 @@
+/*
+
+  Application Styles
+  ----------------------------------
+  The structure is inspired by the official Bootstrap NPM Starter kit.
+
+	- Custom required partials
+  - Bootstrap and overrides
+  - Vendor
+  - Custom components
+
+  Notes:
+
+  If you're getting the following error message during build:
+  "Using / for division is deprecated and will be removed in Dart Sass 2.0.0."
+  Refer to: https://github.com/twbs/bootstrap/issues/34051
+
+*/
+
+// Custom required partials
+@import 'custom/mixins';
+@import 'custom/motion';
+@import 'custom/fonts';
+
+// Boostrap (and overrides)
+@import "bootstrap/bootstrap";
+
+// Vendor
+
+// Custom base
+@import 'custom/layout';
+@import 'custom/type';
+@import 'custom/utilities';
+
+
+// Custom common
+@import 'custom/common/site-header';
+@import 'custom/common/site-footer';
+
+// Custom components
+@import 'custom/components/home-tiles';

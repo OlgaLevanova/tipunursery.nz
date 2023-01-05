@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% if content.article|striptags != '' %}
+        <div class="pt-2 pb-4">
+            {{ content.article|raw }}
+        </div>
+    {% endif %}
+
+    <ul role="menu" itemscope="" itemtype="" class="row / list-unstyled">
+        {% for item in content.catalog_items|sort((a, b) => a.title <=> b.title) %}
+            <li class="col-6 col-lg-4 col-xl-3 / mb-4">
+                <a
+                        href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                        title="{{ item.title }}"
+                        itemprop="name"
+                        class="d-block / text-black text-decoration-none / bg-grey-1 br-5 overflow-hidden img-hover"
+                >
+                    <span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden">
+                        {% if item.image_preview %}
+                            <img src="{{ item.image_preview.url }}" alt="{{ item.title }}" class="w-100 h-100 object-fit-cover img-hover">
+                        {% endif %}
+                    </span>
+                    <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">{{ item.title }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

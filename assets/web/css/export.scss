@@ -1,0 +1,14 @@
+/*
+
+  Export styles to be used in Javascript
+  --------------------------------------------
+
+*/
+
+// Load in application styles, this exposes the variables we need.
+@import 'app';
+
+/**
+ * @sass-export-section="colors"
+ */
+$colors: encode-map($custom-colors);

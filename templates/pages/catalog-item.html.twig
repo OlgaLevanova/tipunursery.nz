@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row / my-8">
+        {% if content.image_preview %}
+            <div class="col-12 col-lg-6">
+                <img src="{{ content.image_preview.url }}" alt="{{ content.title }}" class="mw-100">
+            </div>
+        {% endif %}
+        <div class="col-12 {{ content.image_preview ? 'col-lg-6' : '' }} / fs-20 fs-md-25">
+            {% if content.title_maori %}
+                <div>
+                    <span class="fw-700">Maori name{{ ',' in content.title_maori ? 's' : '' }}:</span> {{ content.title_maori }}
+                </div>
+            {% endif %}
+            {% if content.title_english %}
+                <div>
+                    <span class="fw-700">English name{{ ',' in content.title_english ? 's' : '' }}:</span> {{ content.title_english }}
+                </div>
+            {% endif %}
+            {% if content.height %}
+                <div>
+                    <span class="fw-700">Height:</span> {{ content.height }}m
+                </div>
+            {% endif %}
+            {% if content.width %}
+                <div>
+                    <span class="fw-700">Width:</span> {{ content.width }}m
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row / my-8">
+        <div class="col-12 col-md-6 / mb-4 mb-md-0">
+            <div class="h-100 / p-6 / bg-blue-5">
+                <h2 class="text-blue-4">Uses</h2>
+                <ul class="ps-4 m-0">
+                    {% for category in content.uses_categories %}
+                        <li>{{ category.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="h-100 / p-6 / bg-yellow-3">
+                <h2 class="text-blue-4">Growing Conditions</h2>
+                <ul class="ps-4 m-0">
+                    {% for category in content.growing_categories %}
+                        <li>{{ category.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-8">
+        <h2>Description</h2>
+        {{ content.description|raw }}
+    </div>
+    <div class="my-8">
+        <h2>Germination</h2>
+        {{ content.germination|raw }}
+    </div>
+{% endblock %}

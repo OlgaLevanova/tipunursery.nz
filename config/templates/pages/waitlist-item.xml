@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>waitlist-item</key>
+
+    <view>pages/waitlist-item</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Waitlist Item</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Waitlist title</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <property name="name" type="text_line" colspan="9">
+            <meta>
+                <title lang="en">Name</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="source" type="single_select" mandatory="true" colspan="4">
+            <meta>
+                <title lang="en">Source</title>
+            </meta>
+            <params>
+                <param name="default_value" value="Neighbourly"/>
+                <param name="values" type="collection">
+                    <param name="Neighbourly"><meta><title lang="en">Neighbourly</title></meta></param>
+                    <param name="Facebook"><meta><title lang="en">Facebook</title></meta></param>
+                    <param name="Trademe"><meta><title lang="en">Trademe</title></meta></param>
+                    <param name="Farmers Market"><meta><title lang="en">Farmers Market</title></meta></param>
+                    <param name="Personal contact"><meta><title lang="en">Personal contact</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="status" type="single_select" mandatory="true" colspan="4">
+            <meta>
+                <title lang="en">Status</title>
+            </meta>
+            <params>
+                <param name="default_value" value="Waiting"/>
+                <param name="values" type="collection">
+                    <param name="Waiting"><meta><title lang="en">Waiting</title></meta></param>
+                    <param name="Contacted"><meta><title lang="en">Contacted</title></meta></param>
+                    <param name="Done"><meta><title lang="en">Done</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="date" type="date" colspan="4">
+            <meta>
+                <title lang="en">Date</title>
+            </meta>
+        </property>
+
+        <property name="request" type="text_editor">
+            <meta>
+                <title lang="en">Request</title>
+            </meta>
+        </property>
+
+    </properties>
+</template>

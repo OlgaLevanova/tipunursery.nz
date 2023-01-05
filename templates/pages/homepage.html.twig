@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+
+{% set pageTitle = "Welcome to Tipu Nursery" %}
+
+{% block content %}
+    <div class="row / mb-8 / text-center / home-tiles">
+        <div class="col-6 / home-tile">
+            <a href="/library" class="d-block / ratio ratio-1x1 / text-blue-4">
+                <span class="d-flex justify-content-center align-items-center">
+                    <span class="d-block / p-4 / fs-30">Find information about plants<br>in Library section.</span>
+                </span>
+            </a>
+        </div>
+        <div class="col-6 / home-tile">
+            <a href="/our-products" class="d-block / ratio ratio-1x1 / text-yellow-2">
+                <span class="d-flex justify-content-center align-items-center">
+                    <span class="d-block / p-4 / fs-30">Check available plants<br>in Our Products section.</span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    {{ content.article|raw }}
+{% endblock %}

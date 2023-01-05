@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<type name="prices" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://schemas.sulu.io/template/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <meta>
+        <title lang="en">Price</title>
+    </meta>
+
+    <properties>
+        <property name="bag_size" type="single_select" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Bag size</title>
+            </meta>
+            <params>
+                <param name="default_value" value="cell"/>
+                <param name="values" type="collection">
+                    <param name="cell"><meta><title lang="en">Cell</title></meta></param>
+                    <param name="pb2"><meta><title lang="en">PB2</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="image" type="single_media_selection" colspan="6">
+            <meta>
+                <title lang="en">Product Image</title>
+            </meta>
+            <params>
+                <param name="types" value="image"/>
+            </params>
+        </property>
+
+        <property name="number" type="text_line" mandatory="true" colspan="4">
+            <meta>
+                <title lang="en">How much is available</title>
+            </meta>
+        </property>
+
+        <property name="price" type="text_line" mandatory="true" colspan="4">
+            <meta>
+                <title lang="en">Price, NZD</title>
+            </meta>
+        </property>
+
+        <property name="is_available" type="checkbox" mandatory="true" colspan="4">
+            <meta>
+                <title lang="en">Is it available?</title>
+            </meta>
+            <params>
+                <param name="type" value="toggler"/>
+                <param name="default_value" value="false"/>
+            </params>
+        </property>
+    </properties>
+</type>

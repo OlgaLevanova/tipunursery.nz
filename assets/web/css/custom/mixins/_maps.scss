@@ -1,0 +1,24 @@
+// https://css-tricks.com/snippets/sass/deep-getset-maps/
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+
+	@return $map;
+}
+
+// Generate a list of key value pairs from a map
+@function map-get-key-value($map) {
+	$result: ();
+	@each $key, $value in $map {
+		$result: map-merge($result, ($key: $value));
+	}
+	@return $result;
+}
