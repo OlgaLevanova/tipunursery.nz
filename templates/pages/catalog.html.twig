@@ -14,14 +14,17 @@
                         href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                         title="{{ item.title }}"
                         itemprop="name"
-                        class="d-block / text-black text-decoration-none / bg-grey-1 br-5 overflow-hidden img-hover"
+                        class="d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
                 >
                     <span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden">
                         {% if item.image_preview %}
-                            <img src="{{ item.image_preview.url }}" alt="{{ item.title }}" class="w-100 h-100 object-fit-cover img-hover">
+                            <img src="{{ item.image_preview.url }}" alt="{{ item.title }}" class="w-100 h-100 object-fit-cover img-hover" loading="lazy">
                         {% endif %}
                     </span>
-                    <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">{{ item.title }}</span>
+                    <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">
+                        {{ item.title }}<br>
+                        <span class="fst-italic fw-500">{{ item.title_maori ? item.title_maori : '&nbsp;' }}</span>
+                    </span>
                 </a>
             </li>
         {% endfor %}

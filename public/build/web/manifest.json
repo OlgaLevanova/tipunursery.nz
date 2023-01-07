@@ -4,5 +4,7 @@
   "build/web/runtime.js": "/build/web/runtime.js",
   "build/web/images/totara.jpg": "/build/web/images/totara.b5dff0e4.jpg",
   "build/web/images/cabbage-tree.jpg": "/build/web/images/cabbage-tree.b0ffb0c6.jpg",
-  "build/web/fonts/Helvetica-Black.woff2": "/build/web/fonts/Helvetica-Black.d9ee0547.woff2"
+  "build/web/fonts/Helvetica-Black.woff2": "/build/web/fonts/Helvetica-Black.d9ee0547.woff2",
+  "build/web/assets_web_js_modules_slider_js.js": "/build/web/assets_web_js_modules_slider_js.js",
+  "build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js": "/build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js"
 }

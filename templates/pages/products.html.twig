@@ -10,22 +10,33 @@
 
             {% set product_data = sulu_content_load(item.product_page, {
                 'image_preview': 'image_preview',
+                'title_maori': 'title_maori',
                 'title': 'title'
             }) %}
+
+            {% set images = [] %}
+            {% if item.images is defined and item.images|length > 0 %}
+                {% set images = item.images %}
+            {% else %}
+                {% set images = images|merge([product_data.content.image_preview]) %}
+            {% endif %}
 
             <li class="col-6 col-lg-4 col-xl-3 / mb-4">
                 <a
                         href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                         title="{{ item.title }}"
                         itemprop="name"
-                        class="d-block / text-black text-decoration-none / bg-grey-1 br-5 overflow-hidden img-hover"
+                        class="d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
                 >
                     <span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden">
-                        {% if product_data.content.image_preview %}
-                            <img src="{{ product_data.content.image_preview.url }}" alt="{{ product_data.content.title }}" class="w-100 h-100 object-fit-cover img-hover">
+                        {% if images|length > 0 %}
+                            <img src="{{ images[0].thumbnails['400x400'] }}" alt="{{ product_data.content.title }}" class="w-100 h-100 object-fit-cover img-hover" loading="lazy">
                         {% endif %}
                     </span>
-                    <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">{{ item.title }}</span>
+                    <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">
+                        {{ item.title }}<br>
+                        <span class="fst-italic fw-500">{{ product_data.content.title_maori ? product_data.content.title_maori : '&nbsp;' }}</span>
+                    </span>
                 </a>
             </li>
         {% endfor %}

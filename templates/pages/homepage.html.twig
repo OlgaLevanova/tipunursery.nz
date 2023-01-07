@@ -3,6 +3,11 @@
 {% set pageTitle = "Welcome to Tipu Nursery" %}
 
 {% block content %}
+
+    <div class="mb-6">
+        {{ content.article|raw }}
+    </div>
+
     <div class="row / mb-8 / text-center / home-tiles">
         <div class="col-6 / home-tile">
             <a href="/library" class="d-block / ratio ratio-1x1 / text-blue-4">
@@ -19,6 +24,4 @@
             </a>
         </div>
     </div>
-
-    {{ content.article|raw }}
 {% endblock %}

@@ -46,6 +46,7 @@
                 <param name="properties" type="collection">
                     <param name="product_page" value="product_page"/>
                     <param name="image_preview" value="image_preview"/>
+                    <param name="images" value="images"/>
                 </param>
             </params>
         </property>

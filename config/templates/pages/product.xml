@@ -46,6 +46,16 @@
             </meta>
         </property>
 
+        <property name="images" type="media_selection">
+            <meta>
+                <title lang="en">Images</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+            </params>
+        </property>
+
         <section name="prices_content">
             <meta>
                 <title lang="en">On sale. Price options.</title>

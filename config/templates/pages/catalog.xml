@@ -47,6 +47,8 @@
                 <param name="provider" value="pages"/>
                 <param name="properties" type="collection">
                     <param name="germination" value="germination"/>
+                    <param name="title_maori" value="title_maori"/>
+                    <param name="images" value="images"/>
                     <param name="image_preview" value="image_preview"/>
                 </param>
             </params>
