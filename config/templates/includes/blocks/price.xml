@@ -12,6 +12,7 @@
             <params>
                 <param name="default_value" value="cell"/>
                 <param name="values" type="collection">
+                    <param name="Punnet"><meta><title lang="en">Punnet</title></meta></param>
                     <param name="cell"><meta><title lang="en">Cell</title></meta></param>
                     <param name="pb2"><meta><title lang="en">PB2</title></meta></param>
                 </param>

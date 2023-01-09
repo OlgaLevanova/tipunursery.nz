@@ -1,5 +1,7 @@
 {% extends "layout.html.twig" %}
 
+{% set pageTitle = false %}
+
 {% block content %}
     {{ content.article|raw }}
 
@@ -18,9 +20,9 @@
         {% set images = images|merge([product_data.content.image_preview]) %}
     {% endif %}
 
-    <div class="row">
+    <div class="row / pt-2 pt-lg-5">
         {% if images|length > 0 %}
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-4 / order-1 order-lg-0">
 
                 <div id="carouselTipu" class="carousel slide">
                     <div class="carousel-inner">
@@ -45,86 +47,58 @@
 
             </div>
         {% endif %}
-        <div class="col-12 {{ product_data.content.image_preview ? 'col-lg-5' : '' }}">
+        <div class="col-12 {{ product_data.content.image_preview ? 'col-lg-8' : '' }} / order-0 order-lg-1">
 
-            <table class="w-100 fs-20 / table table-bordered table-hover">
-                <thead>
-                <tr class="table-primary / fw-700">
-                    <th scope="col">
-                        Bag size
-                    </th>
-{#                    <th scope="col" class="text-center">#}
-{#                        Available number#}
-{#                    </th>#}
-                    <th scope="col" class="text-center">
-                        Price per bug, NZD
-                    </th>
-{#                    <th scope="col" class="text-center">#}
-{#                        Is it available#}
-{#                    </th>#}
-                </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                {% for item in content.prices_options %}
-                    {% if item.is_available %}
-                        <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
-                            <th scope="row">
-                                {{ item.bag_size|upper }}
+            <h1 class="mt-0 mt-lg-1 mb-0">{{ content.title }}</h1>
+
+            {% if product_data.content.title_maori or product_data.content.title_english %}
+                <div class="fst-italic fw-500 / mb-3 mb-lg-5">
+                    {% if product_data.content.title_maori %}{{ product_data.content.title_maori }}, {% endif %}{{ product_data.content.title_english }}
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-12 / order-1 order-lg-0">
+                    <div class="mb-6 / fs-18 fs-lg-20">
+                        <p>
+                            If you want to buy plants, please email or text Olga.<br>
+                            Phone: <a href="tel:021 119 0998">021 119 0998</a><br>
+                            Email: <a href="mailto:olga.levanova@gmail.com">olga.levanova@gmail.com</a>
+                        </p>
+                        <p>
+                            You also can come to my nursery by appointment to check available plants. Please let me know if you would like to come.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 / order-0 order-lg-1">
+                    <table class="w-100 fs-18 fs-lg-20 / table table-bordered table-hover">
+                        <thead>
+                        <tr class="table-primary / fw-700">
+                            <th scope="col">
+                                Bag size
                             </th>
-{#                            <td class="text-center">#}
-{#                                {{ item.number }}#}
-{#                            </td>#}
-                            <td class="text-center">
-                                ${{ item.price }}
-                            </td>
-{#                            <td class="text-center">#}
-{#                                {{ item.is_available ? 'Yes' : 'No' }}#}
-{#                            </td>#}
+                            <th scope="col" class="text-center">
+                                Price per bug, NZD
+                            </th>
                         </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
-
-            <div class="mt-8 p-4 / fs-20 / bg-grey-2">
-                <p>
-                    If you want to buy plants, please email or text Olga.<br>
-                    Phone: <a href="tel:021 119 0998">021 119 0998</a><br>
-                    Email: <a href="mailto:olga.levanova@gmail.com">olga.levanova@gmail.com</a>
-                </p>
-                <p>
-                    You also can come to my nursery by appointment to check available plants. Please let me know if you would like to come.
-                </p>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        {% for item in content.prices_options %}
+                            {% if item.is_available %}
+                                <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
+                                    <th scope="row">
+                                        {{ item.bag_size|capitalize }}
+                                    </th>
+                                    <td class="text-center">
+                                        ${{ item.price }}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-        </div>
-    </div>
-
-
-    <div class="mt-8">
-        {% if product_data.content.title_maori %}
-            <div>
-                <span class="fw-700">Maori name{{ ',' in product_data.content.title_maori ? 's' : '' }}:</span> {{ product_data.content.title_maori }}
-            </div>
-        {% endif %}
-        {% if product_data.content.title_english %}
-            <div>
-                <span class="fw-700">English name{{ ',' in product_data.content.title_english ? 's' : '' }}:</span> {{ product_data.content.title_english }}
-            </div>
-        {% endif %}
-        {% if product_data.content.height %}
-            <div>
-                <span class="fw-700">Height:</span> {{ product_data.content.height }}m
-            </div>
-        {% endif %}
-        {% if product_data.content.width %}
-            <div>
-                <span class="fw-700">Width:</span> {{ product_data.content.width }}m
-            </div>
-        {% endif %}
-
-        <div class="mt-2 / fs-16">
-            <sulu-link href="{{ content.product_page }}">Read more</sulu-link> about {{ content.title }} in Library
         </div>
     </div>
 

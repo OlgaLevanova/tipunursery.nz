@@ -21,9 +21,9 @@ $enable-grid-classes: true;
 $enable-cssgrid: false;
 $enable-button-pointers: true;
 $enable-rfs: true;
-$enable-validation-icons: true;
+$enable-validation-icons: false;
 $enable-negative-margins: true;
-$enable-deprecation-messages: true;
+$enable-deprecation-messages: false;
 $enable-important-utilities: true;
 
 
@@ -35,27 +35,10 @@ $enable-important-utilities: true;
 $custom-colors:(
 	"white": #ffffff,
 	"black": #000000,
-	"blue-1": #3BA4FF,
-	"blue-2": #004E93,
-	"blue-3": #275B89,
 	"blue-4": #003461,
-	"blue-5": #e9f5ff,
 	"red-1": #B30A18,
-	"red-2": #9d2803,
-	"red-3": #c12b0c,
 	"red-4": #A9280F,
-	"red-5": rgba(169, 40, 15, 0.15),
-	"orange-1": #F26430,
-	"orange-2": #BC3908,
-	"yellow-1": #F6AA1C,
 	"yellow-2": #f9c970,
-	"yellow-3": #f9edd6,
-	"green-1": #0A6700,
-	"green-2": #407807,
-	"green-3": #134611,
-	"green-4": #485c2e,
-	"brown-1": #32241b,
-	"brown-2": #E7EBC5,
 	"grey-1": #D3D3D3,
 	"grey-2": #ededed,
 );
@@ -66,7 +49,7 @@ $secondary: map-get($custom-colors, "yellow-2");
 
 $info: map-get($custom-colors, "black");
 $success: map-get($custom-colors, "black");
-$warning: map-get($custom-colors, "yellow-1");
+$warning: #F6AA1C;
 $danger: map-get($custom-colors, "red-1");
 
 $light: #ffffff;
@@ -188,9 +171,7 @@ $grid-breakpoints: (
 	sm: 576px,
 	md: 768px,
 	lg: 992px,
-	xl: 1200px,
-	xxl: 1400px,
-	xxxl: 1640px
+	xl: 1200px
 );
 
 
@@ -202,9 +183,7 @@ $container-max-widths: (
 	sm: 540px,
 	md: 720px,
 	lg: 960px,
-	xl: 1140px,
-	xxl: 1340px,
-	xxxl: 1545px
+	xl: 1140px
 );
 
 

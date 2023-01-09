@@ -34,23 +34,6 @@ $utilities: map-merge(
 				)
 			),
 			// todo: make design system example
-			"width": (
-				property: width,
-				class: w,
-				responsive: true,
-				values: (
-					20: 20%,
-					25: 25%,
-					40: 40%,
-					50: 50%,
-					60: 60%,
-					75: 75%,
-					80: 80%,
-					100: 100%,
-					auto: auto
-				)
-			),
-			// todo: make design system example
 			"opacity": (
 				property: opacity,
 				class: o,

@@ -1,4 +1,18 @@
 .home-tile{
+	@include media-breakpoint-down(sm) {
+		.ratio{
+			&:before {
+				display:none !important;
+			}
+			> * {
+				position:static !important;
+			}
+		}
+		a{
+			text-decoration:none !important;
+		}
+	}
+
 	&:nth-child(1){
 		a{
 			background:url('/public/assets/images/cabbage-tree.jpg') no-repeat center / cover;
