@@ -36,7 +36,7 @@
 
         <property name="article" type="text_editor">
             <meta>
-                <title lang="en">Article</title>
+                <title lang="en">Notes</title>
             </meta>
         </property>
 

@@ -28,19 +28,19 @@
             </params>
         </property>
 
-        <property name="number" type="text_line" mandatory="true" colspan="4">
+        <property name="number" type="text_line" colspan="4">
             <meta>
                 <title lang="en">How much is available</title>
             </meta>
         </property>
 
-        <property name="price" type="text_line" mandatory="true" colspan="4">
+        <property name="price" type="text_line" colspan="4">
             <meta>
                 <title lang="en">Price, NZD</title>
             </meta>
         </property>
 
-        <property name="is_available" type="checkbox" mandatory="true" colspan="4">
+        <property name="is_available" type="checkbox" colspan="4">
             <meta>
                 <title lang="en">Is it available?</title>
             </meta>

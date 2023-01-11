@@ -1,0 +1,12 @@
+sulu_media:
+    # To support webp formats, the GD adapter must be used.
+#    adapter: 'gd'
+    disposition_type:
+        default: "inline"
+        mime_types_inline: ["image/jpeg", "image/webp", "image/png", "image/svg+xml"]
+        mime_types_attachment: ["application/pdf"]
+    format_manager:
+        default_imagine_options:
+            jpeg_quality: 75
+            webp_quality: 75
+            png_compression_level: 6

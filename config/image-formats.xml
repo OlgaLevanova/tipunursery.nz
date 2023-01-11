@@ -8,6 +8,11 @@
     <!-- Fixed width and dynamic height -->
     <format key="400x">
         <scale x="400"/>
+
+        <options>
+            <option name="jpeg_quality">80</option>
+            <option name="webp_quality">80</option>
+        </options>
     </format>
     <format key="600x">
         <scale x="600"/>

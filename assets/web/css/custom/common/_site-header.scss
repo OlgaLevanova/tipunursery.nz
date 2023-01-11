@@ -7,13 +7,12 @@
 .site-header{
 	flex-shrink: 0;
 }
-//
-//.site-header__menu-btn{
-//	padding: 0;
-//	margin: 0;
-//}
-//
-//.site-header__search-btn{
-//	padding: 0;
-//	margin: 0;
-//}
+.header__logo{
+	width:47px;
+	height:47px;
+
+	@include media-breakpoint-up(md){
+		width:80px;
+		height:80px;
+	}
+}

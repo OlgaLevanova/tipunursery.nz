@@ -27,4 +27,12 @@
             </meta>
         </property>
     </properties>
+
+    <areas>
+        <area key="product_sale_notes_text">
+            <meta>
+                <title lang="en">Product sale notes</title>
+            </meta>
+        </area>
+    </areas>
 </template>

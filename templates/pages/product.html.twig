@@ -3,8 +3,6 @@
 {% set pageTitle = false %}
 
 {% block content %}
-    {{ content.article|raw }}
-
     {% set product_data = sulu_content_load(content.product_page, {
         'image_preview': 'image_preview',
         'title_maori': 'title_maori',
@@ -19,6 +17,8 @@
     {% else %}
         {% set images = images|merge([product_data.content.image_preview]) %}
     {% endif %}
+
+    {% set snippets = sulu_snippet_load_by_area('product_sale_notes_text') %}
 
     <div class="row / pt-2 pt-lg-5">
         {% if images|length > 0 %}
@@ -53,21 +53,14 @@
 
             {% if product_data.content.title_maori or product_data.content.title_english %}
                 <div class="fst-italic fw-500 / mb-3 mb-lg-5">
-                    {% if product_data.content.title_maori %}{{ product_data.content.title_maori }}, {% endif %}{{ product_data.content.title_english }}
+                    {{ product_data.content.title_maori ? product_data.content.title_maori : '' }}{{ product_data.content.title_english ? ', ' ~ product_data.content.title_english : '' }}
                 </div>
             {% endif %}
 
             <div class="row">
                 <div class="col-12 / order-1 order-lg-0">
                     <div class="mb-6 / fs-18 fs-lg-20">
-                        <p>
-                            If you want to buy plants, please email or text Olga.<br>
-                            Phone: <a href="tel:021 119 0998">021 119 0998</a><br>
-                            Email: <a href="mailto:olga.levanova@gmail.com">olga.levanova@gmail.com</a>
-                        </p>
-                        <p>
-                            You also can come to my nursery by appointment to check available plants. Please let me know if you would like to come.
-                        </p>
+                        {{ snippets.content.description|raw }}
                     </div>
                 </div>
                 <div class="col-12 / order-0 order-lg-1">
@@ -97,6 +90,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="col-12 / order-0 order-lg-2">
+                    {{ content.article|striptags != '' ? content.article|raw : '' }}
                 </div>
             </div>
         </div>

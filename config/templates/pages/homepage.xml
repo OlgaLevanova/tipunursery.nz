@@ -11,14 +11,12 @@
 
     <meta>
         <title lang="en">Homepage</title>
-        <title lang="de">Startseite</title>
     </meta>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>
-                <title lang="de">Titel</title>
             </meta>
             <params>
                 <param name="headline" value="true"/>
@@ -30,16 +28,20 @@
         <property name="url" type="resource_locator" mandatory="true">
             <meta>
                 <title lang="en">Resourcelocator</title>
-                <title lang="de">Adresse</title>
             </meta>
 
             <tag name="sulu.rlp"/>
         </property>
 
+        <property name="page_title" type="text_line">
+            <meta>
+                <title lang="en">Page title</title>
+            </meta>
+        </property>
+
         <property name="article" type="text_editor">
             <meta>
                 <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
             </meta>
         </property>
 
