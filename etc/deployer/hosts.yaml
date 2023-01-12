@@ -1,0 +1,14 @@
+hosts:
+
+    # PROD
+    prod:
+        application: 'tipunursery.nz'
+        hostname: '49.50.249.40'
+        http_user: 'tipunurs'
+        remote_user: 'tipunurs'
+        stage: 'prod'
+        branch: 'main'
+        roles:
+            - app
+            - db
+        deploy_path: '/home/tipunurs/www'
