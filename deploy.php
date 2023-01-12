@@ -17,6 +17,10 @@ require 'vendor/deployer/recipes/recipe/yarn.php';
 // Project repository
 set('repository', 'git@github.com:OlgaLevanova/tipunursery.nz.git');
 
+// To fix error command-line line 0: unsupported option "accept-new".
+// https://github.com/deployphp/deployer/issues/2908
+set('git_ssh_command', 'ssh');
+
 // [Optional] Allocate tty for git clone. Default value is false.
 //set('git_tty', true);
 
