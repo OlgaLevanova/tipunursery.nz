@@ -45,5 +45,65 @@
             </meta>
         </property>
 
+        <section name="home_tile_1">
+            <meta>
+                <title lang="en">Home page tile 1</title>
+            </meta>
+
+            <properties>
+                <property name="home_tile_1_title" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Title</title>
+                    </meta>
+                </property>
+
+                <property name="home_tile_1_page" type="single_page_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Page link</title>
+                    </meta>
+                </property>
+
+                <property name="home_tile_1_images" type="single_media_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Background Image</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <section name="home_tile_2">
+            <meta>
+                <title lang="en">Home page tile 2</title>
+            </meta>
+
+            <properties>
+                <property name="home_tile_2_title" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Title</title>
+                    </meta>
+                </property>
+
+                <property name="home_tile_2_page" type="single_page_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Page link</title>
+                    </meta>
+                </property>
+
+                <property name="home_tile_2_images" type="single_media_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Background Image</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
     </properties>
 </template>

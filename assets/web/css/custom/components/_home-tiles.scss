@@ -15,7 +15,7 @@
 
 	&:nth-child(1){
 		a{
-			background:url('/public/assets/images/home-tile-1.jpg') no-repeat center / cover;
+			background:no-repeat center / cover;
 
 			>span{
 				background:rgba($primary, 0.9);
@@ -24,7 +24,7 @@
 	}
 	&:nth-child(2){
 		a{
-			background:url('/public/assets/images/home-tile-2.jpg') no-repeat center / cover;
+			background:no-repeat center / cover;
 
 			>span{
 				background:rgba($secondary, 0.9);

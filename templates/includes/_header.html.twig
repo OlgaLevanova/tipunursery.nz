@@ -18,10 +18,12 @@
 						<ul role="menu" itemscope="" itemtype="" class="row justify-content-center justify-content-lg-end / m-0 / fw-bold / list-unstyled">
 							{% for item in sulu_navigation_root_flat('top-menu') %}
 								{% set activeItem = request is defined and sulu_navigation_is_active(request.resourceLocator, item.url) %}
-								<li class="col-auto / px-0">
+								<li class="col-auto / px-0"
+									role="presentation">
 									<a
 											href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
 											title="{{ item.title }}"
+											role="menuitem"
 											itemprop="name"
 											{% if activeItem %}aria-current="page"{% endif %}
 											class="btn / px-2 {{ activeItem ? 'bg-blue-4 text-yellow-2' : 'text-blue-4' }} / fs-14 fs-sm-18 text-decoration-none"
