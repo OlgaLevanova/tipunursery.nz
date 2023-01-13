@@ -128,4 +128,4 @@ after('deploy:failed', 'deploy:unlock');
 //after('database:migrate', 'satellite:config:preload');
 
 // Restart FPM
-after('deploy', 'reload:php-fpm');
+//after('deploy', 'reload:php-fpm');
