@@ -4,7 +4,7 @@ hosts:
     prod:
         application: 'tipunursery.nz'
         hostname: 'tipunursery.nz'
-#        http_user: 'tipunurs'
+        http_user: 'tipunurs'
         remote_user: 'tipunurs'
         stage: 'prod'
         branch: 'main'
