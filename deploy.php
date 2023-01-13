@@ -55,40 +55,59 @@ import(__DIR__ . '/etc/deployer/hosts.yaml');
 // Override: bin/composer
 // Explicitly install composer version 1 for use.
 set('bin/composer', function () {
-    run("curl -sS https://getcomposer.org/installer |  {{bin/php}} -- --2");
-    $composer = '{{bin/php}} composer.phar';
+	run("cd {{release_path}} && curl -sS https://getcomposer.org/installer |  {{bin/php}} -- --2");
+	$composer = '{{bin/php}} {{release_path}}/composer.phar';
 
-    return $composer;
+	return $composer;
 });
 
 /**
  * Tasks
  */
 
-// Run "yarn install".
-task('yarn:install', function () {
-	run('{{bin/yarn}} install');
-});
+// Run "yarn install" within the release path.
+// NOT TO DO. Can't build assets on hosting
+//task('yarn:install', function () {
+//	within('{{release_path}}', function () {
+//		run('{{bin/yarn}} install');
+//	});
+//});
 
-// Run "yarn build".
-task('yarn:build', function () {
-	run('{{bin/yarn}} build');
-});
+// Run "yarn build" within the release path.
+// NOT TO DO. Can't build assets on hosting
+//task('yarn:build', function () {
+//	within('{{release_path}}', function () {
+//		run('{{bin/yarn}} build');
+//	});
+//});
 
-desc('Build frontend assets');
-task('frontend:build', [
-    'yarn:install',
-    'yarn:build'
-]);
+// NOT TO DO. Can't build assets on hosting
+//desc('Build frontend assets');
+//task('frontend:build', [
+//	'yarn:install',
+//	'yarn:build'
+//]);
 
-desc('Build admin assets');
-task('admin:build', function () {
-	run('{{bin/php}} bin/console sulu:admin:update-build');
-});
+// NOT TO DO. Can't build assets on hosting
+//desc('Build admin assets');
+//task('admin:build', function () {
+//	within('{{release_or_current_path}}', function () {
+//		run('{{bin/php}} {{release_or_current_path}}/bin/console sulu:admin:update-build');
+//	});
+//});
 
 task('reload:php-fpm', function () {
 	run('sudo /bin/systemctl restart php8.0-fpm');
 });
+
+//task('reload:php-fpm', function () {
+//    run('sudo /bin/systemctl restart php8.0-fpm');
+//})->onStage('prod');
+
+//desc('Preload database managed config');
+//task('satellite:config:preload', function () {
+//    run('{{bin/console}} satellite:config:preload');
+//});
 
 /**
  * Task Hooks
@@ -98,8 +117,9 @@ task('reload:php-fpm', function () {
 after('deploy:failed', 'deploy:unlock');
 
 // Build admin/frontend after dependencies have been installed.
-after('deploy:update_code', 'frontend:build');
-after('deploy:vendors', 'admin:build');
+// NOT TO DO. Can't build assets on hosting
+//after('deploy:update_code', 'frontend:build');
+//after('deploy:vendors', 'admin:build');
 
 // Migrate database before symlink new release.
 //before('deploy:symlink', 'database:migrate');
