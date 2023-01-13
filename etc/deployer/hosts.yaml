@@ -3,8 +3,8 @@ hosts:
     # PROD
     prod:
         application: 'tipunursery.nz'
-        hostname: '49.50.249.40'
-        http_user: 'tipunurs'
+        hostname: 'tipunursery.nz'
+#        http_user: 'tipunurs'
         remote_user: 'tipunurs'
         stage: 'prod'
         branch: 'main'
@@ -12,3 +12,4 @@ hosts:
             - app
             - db
         deploy_path: '/home/tipunurs/www'
+#        identity_file: '~/.ssh/id_rsa'

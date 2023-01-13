@@ -22,7 +22,7 @@ set('repository', 'git@github.com:OlgaLevanova/tipunursery.nz.git');
 set('git_ssh_command', 'ssh');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-//set('git_tty', true);
+set('git_tty', true);
 
 // Shared files/dirs between deploys
 //
@@ -55,8 +55,8 @@ import(__DIR__ . '/etc/deployer/hosts.yaml');
 // Override: bin/composer
 // Explicitly install composer version 1 for use.
 set('bin/composer', function () {
-    run("cd {{release_path}} && curl -sS https://getcomposer.org/installer |  {{bin/php}} -- --2");
-    $composer = '{{bin/php}} {{release_path}}/composer.phar';
+    run("curl -sS https://getcomposer.org/installer |  {{bin/php}} -- --2");
+    $composer = '{{bin/php}} composer.phar';
 
     return $composer;
 });
@@ -65,18 +65,14 @@ set('bin/composer', function () {
  * Tasks
  */
 
-// Run "yarn install" within the release path.
+// Run "yarn install".
 task('yarn:install', function () {
-	within('{{release_path}}', function () {
-		run('{{bin/yarn}} install');
-	});
+	run('{{bin/yarn}} install');
 });
 
-// Run "yarn build" within the release path.
+// Run "yarn build".
 task('yarn:build', function () {
-    within('{{release_path}}', function () {
-        run('{{bin/yarn}} build');
-    });
+	run('{{bin/yarn}} build');
 });
 
 desc('Build frontend assets');
@@ -87,9 +83,7 @@ task('frontend:build', [
 
 desc('Build admin assets');
 task('admin:build', function () {
-	within('{{release_or_current_path}}', function () {
-		run('{{bin/php}} {{release_or_current_path}}/bin/console sulu:admin:update-build');
-	});
+	run('{{bin/php}} bin/console sulu:admin:update-build');
 });
 
 task('reload:php-fpm', function () {
