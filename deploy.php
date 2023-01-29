@@ -19,7 +19,7 @@ set('repository', 'git@github.com:OlgaLevanova/tipunursery.nz.git');
 
 // To fix error command-line line 0: unsupported option "accept-new".
 // https://github.com/deployphp/deployer/issues/2908
-set('git_ssh_command', 'ssh');
+//set('git_ssh_command', 'ssh');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
@@ -97,11 +97,11 @@ set('bin/composer', function () {
 //});
 
 task('reload:php-fpm', function () {
-	run('sudo /bin/systemctl restart php8.0-fpm');
+	run('sudo /bin/systemctl restart php8.1-fpm');
 });
 
 //task('reload:php-fpm', function () {
-//    run('sudo /bin/systemctl restart php8.0-fpm');
+//    run('sudo /bin/systemctl restart php8.1-fpm');
 //})->onStage('prod');
 
 //desc('Preload database managed config');

@@ -3,13 +3,13 @@ hosts:
     # PROD
     prod:
         application: 'tipunursery.nz'
-        hostname: 'tipunursery.nz'
-        http_user: 'tipunurs'
-        remote_user: 'tipunurs'
+        hostname: '51.161.152.16'
+        port: 6666
+        http_user: 'olga'
+        remote_user: 'olga'
         stage: 'prod'
         branch: 'main'
         roles:
             - app
             - db
-        deploy_path: '/home/tipunurs/www'
-#        identity_file: '~/.ssh/id_rsa'
+        deploy_path: '/var/www/tipunursery.nz'
