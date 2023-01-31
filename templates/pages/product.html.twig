@@ -28,7 +28,7 @@
                     <div class="carousel-inner">
                         {% for image in images %}
                             <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
-                                <img src="{{ image.thumbnails['800x'] }}" alt="{{ image.description }}" class="w-100">
+                                <img src="{{ image.thumbnails['800x.webp'] }}" alt="{{ image.description }}" class="w-100">
                                 <div class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">{{ image.description ? image.description : content.title }}</div>
                             </div>
                         {% endfor %}
@@ -71,7 +71,7 @@
                                 Bag size
                             </th>
                             <th scope="col" class="text-center">
-                                Price per bug, NZD
+                                Price per bag, NZD
                             </th>
                         </tr>
                         </thead>
@@ -80,7 +80,7 @@
                             {% if item.is_available %}
                                 <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
                                     <th scope="row">
-                                        {{ item.bag_size|capitalize }}
+                                        {{ item.bag_size|lower == 'cell' ? item.bag_size|capitalize : item.bag_size|upper }}
                                     </th>
                                     <td class="text-center">
                                         ${{ item.price }}

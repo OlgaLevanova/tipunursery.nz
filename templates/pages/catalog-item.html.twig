@@ -4,7 +4,7 @@
     <div class="row / my-2 my-lg-8">
         {% if content.image_preview %}
             <div class="col-12 col-lg-6 / order-1 order-lg-0">
-                <img src="{{ content.image_preview.url }}" alt="{{ content.title }}" class="mw-100">
+                <img src="{{ content.image_preview.thumbnails['400x.webp'] }}" alt="{{ content.title }}" class="mw-100">
             </div>
         {% endif %}
         <div class="col-12 {{ content.image_preview ? 'col-lg-6 / mb-4 mb-lg-0 / order-0 order-lg-1' : '' }} / fs-20 fs-md-25">
