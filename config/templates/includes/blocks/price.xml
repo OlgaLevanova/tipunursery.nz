@@ -13,8 +13,21 @@
                 <param name="default_value" value="cell"/>
                 <param name="values" type="collection">
                     <param name="Punnet"><meta><title lang="en">Punnet</title></meta></param>
-                    <param name="cell"><meta><title lang="en">Cell</title></meta></param>
-                    <param name="pb2"><meta><title lang="en">PB2</title></meta></param>
+                    <param name="Cell"><meta><title lang="en">Cell</title></meta></param>
+                    <param name="0.1_L"><meta><title lang="en">0.1 L</title></meta></param>
+                    <param name="0.5_L"><meta><title lang="en">0.5 L</title></meta></param>
+                    <param name="PB_3/4"><meta><title lang="en">PB 3/4</title></meta></param>
+                    <param name="PB_1_1/2"><meta><title lang="en">PB 1 1/2</title></meta></param>
+                    <param name="PB_2"><meta><title lang="en">PB 2</title></meta></param>
+                    <param name="PB_3"><meta><title lang="en">PB 3</title></meta></param>
+                    <param name="PB_5"><meta><title lang="en">PB 5</title></meta></param>
+                    <param name="PB_8"><meta><title lang="en">PB 8</title></meta></param>
+                    <param name="PB_12"><meta><title lang="en">PB 12</title></meta></param>
+                    <param name="PB_18"><meta><title lang="en">PB 18</title></meta></param>
+                    <param name="PB_28"><meta><title lang="en">PB 28</title></meta></param>
+                    <param name="PB_40"><meta><title lang="en">PB 40</title></meta></param>
+                    <param name="PB_60"><meta><title lang="en">PB 60</title></meta></param>
+                    <param name="PB_95"><meta><title lang="en">PB 95</title></meta></param>
                 </param>
             </params>
         </property>
