@@ -20,6 +20,10 @@
             "localizations": localizations|default([]),
             "shadowBaseLocale": shadowBaseLocale|default(),
         } %}
+
+        {% include "includes/_base__ogt.html.twig" with {
+            "seo": extension.seo|default([])
+        } %}
     {% endblock %}
 
     {% block stylesheets %}
