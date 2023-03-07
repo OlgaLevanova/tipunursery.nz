@@ -9,6 +9,10 @@
         'title_english': 'title_english',
         'height': 'height',
         'width': 'width',
+        'description': 'description',
+        'uses_categories': 'uses_categories',
+        'growing_categories': 'growing_categories',
+        'url': 'url',
     }) %}
 
     {% set images = [] %}
@@ -49,13 +53,19 @@
         {% endif %}
         <div class="col-12 {{ product_data.content.image_preview ? 'col-lg-8' : '' }} / order-0 order-lg-1">
 
-            <h1 class="mt-0 mt-lg-1 mb-0">{{ content.title }}</h1>
+            <h1 class="mt-0 mt-lg-1 mb-0">
+                {{ content.title }}
+            </h1>
 
             {% if product_data.content.title_maori or product_data.content.title_english %}
-                <div class="fst-italic fw-500 / mb-3 mb-lg-5">
+                <div class="fst-italic fw-500">
                     {{ product_data.content.title_maori ? product_data.content.title_maori : '' }}{{ product_data.content.title_english ? ', ' ~ product_data.content.title_english : '' }}
                 </div>
             {% endif %}
+
+            <div class="mt-2 mb-3 mb-lg-5">
+                <a href="{{ product_data.content.url }}" class="fs-16 fw-400 ls-0">Read about {{ content.title }} in Library</a>
+            </div>
 
             <div class="row">
                 <div class="col-12 / order-1 order-lg-0">
@@ -96,6 +106,34 @@
                 <div class="col-12 / order-0 order-lg-2">
                     {{ content.article|striptags != '' ? content.article|raw : '' }}
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5 my-lg-10">
+        <h2>Description</h2>
+        {{ product_data.content.description|raw }}
+    </div>
+
+    <div class="row / my-5 my-lg-8">
+        <div class="col-12 col-md-6 / mb-4 mb-md-0">
+            <div class="h-100 / p-6 / bg-blue-5">
+                <h2 class="text-blue-4">Uses</h2>
+                <ul class="ps-4 m-0">
+                    {% for category in product_data.content.uses_categories %}
+                        <li>{{ category.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="h-100 / p-6 / bg-yellow-3">
+                <h2 class="text-blue-4">Growing Conditions</h2>
+                <ul class="ps-4 m-0">
+                    {% for category in product_data.content.growing_categories %}
+                        <li>{{ category.name }}</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
