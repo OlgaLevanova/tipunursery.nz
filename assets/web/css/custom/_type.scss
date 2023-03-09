@@ -28,6 +28,13 @@ a{
   word-break: break-word;
 }
 
+.list-icon-circle{
+  li{
+    padding-left:35px;
+    background:url('/public/assets/images/icon-check-n-circle.svg') no-repeat 0 7px / 25px;
+  }
+}
+
 // Font-size
 // ----------------------------------
 @each $key, $value in $font-sizes {

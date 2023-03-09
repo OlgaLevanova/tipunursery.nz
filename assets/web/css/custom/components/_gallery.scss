@@ -1,0 +1,63 @@
+/* zero custom styles for photoswipe */
+
+/*==================================
+SWIPER - minimal styling
+===================================*/
+/* semantic HTML - remove bullet and space from the list */
+ul.swiper-wrapper {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Swiper container */
+.swiper {
+	max-width: 100%;
+	height: auto;
+}
+/*
+/* swiper responive image */
+.swiper img {
+	width: 100%;
+	height: auto;
+}
+
+
+/* Swiper custom pagination */
+.swiper-pagination-bullet {
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.6);
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.3);
+	transition: all 0.5s ease, color 0.5s ease;
+}
+
+/* Swiper custom pagination */
+.swiper-pagination-bullet:hover {
+	transition: background-color 0.5s ease;
+	background: rgba(0, 0, 0, 1);
+	color: white;
+}
+
+/* Swiper custom pagination active state */
+.swiper-pagination-bullet-active {
+	color: #fff;
+	background: black;
+}
+
+/* override zoom cursor */
+.pswp__img {
+	cursor: pointer !important;
+}
+
+.swiper-pagination{
+	bottom:0 !important;
+}
+.swiper-pagination-bullet{
+	width:20px !important;
+	height:20px !important;
+}

@@ -1,34 +1,88 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <div class="row / my-2 my-lg-8">
-        {% if content.image_preview %}
-            <div class="col-12 col-lg-6 / order-1 order-lg-0">
-                <img src="{{ content.image_preview.thumbnails['400x.webp'] }}" alt="{{ content.title }}" class="mw-100">
+    <div class="mb-2 mb-lg-6 fs-18">
+        {% if content.title_maori %}
+            <div>
+                <span class="fw-700">Maori name{{ ',' in content.title_maori ? 's' : '' }}:</span> {{ content.title_maori }}
             </div>
         {% endif %}
-        <div class="col-12 {{ content.image_preview ? 'col-lg-6 / mb-4 mb-lg-0 / order-0 order-lg-1' : '' }} / fs-20 fs-md-25">
-            {% if content.title_maori %}
-                <div>
-                    <span class="fw-700">Maori name{{ ',' in content.title_maori ? 's' : '' }}:</span> {{ content.title_maori }}
-                </div>
-            {% endif %}
-            {% if content.title_english %}
-                <div>
-                    <span class="fw-700">English name{{ ',' in content.title_english ? 's' : '' }}:</span> {{ content.title_english }}
-                </div>
-            {% endif %}
-            {% if content.height %}
-                <div>
-                    <span class="fw-700">Height:</span> {{ content.height }}m
-                </div>
-            {% endif %}
-            {% if content.width %}
-                <div>
-                    <span class="fw-700">Width:</span> {{ content.width }}m
-                </div>
-            {% endif %}
-        </div>
+        {% if content.title_english %}
+            <div>
+                <span class="fw-700">English name{{ ',' in content.title_english ? 's' : '' }}:</span> {{ content.title_english }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="swiper mySwiper pb-6 mb-6" id="my-gallery">
+        <ul class="swiper-wrapper" itemscope itemtype="http://schema.org/ImageGallery">
+            <li id="slide_1" class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a
+                        itemprop="contentUrl"
+                        href="https://picsum.photos/id/911/1600/900"
+                        data-pswp-width="1600"
+                        data-pswp-height="900"
+                        target="_blank"
+                >
+                    <img
+                            src="https://picsum.photos/id/911/1600/900"
+                            itemprop="thumbnail" alt="Image 1 description"
+                    />
+                </a>
+            </li>
+            <li id="slide_2"  class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a
+                        itemprop="contentUrl"
+                        href="https://picsum.photos/id/777/1600/900"
+                        data-pswp-width="1600"
+                        data-pswp-height="900"
+                        target="_blank"
+                >
+                    <img
+                            src="https://picsum.photos/id/777/1600/900"
+                            itemprop="thumbnail" alt="Image 2 description"
+                    />
+                </a>
+            </li>
+            <li id="slide_3"  class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a
+                        itemprop="contentUrl"
+                        href="https://picsum.photos/id/234/1600/900"
+                        data-pswp-width="1600"
+                        data-pswp-height="900"
+                        target="_blank"
+                >
+                    <img
+                            src="https://picsum.photos/id/234/1600/900"
+                            itemprop="thumbnail" alt="Image 3 description"
+                    />
+                </a>
+            </li>
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+{#    {% if content.image_preview %}#}
+{#        <div class="ratio ratio-16x9">#}
+{#            <img src="{{ content.image_preview.thumbnails['400x.webp'] }}" alt="{{ content.title }}" class="object-fit-cover">#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    <div class="my-5 my-lg-8">
+        <h2>Description</h2>
+        {% if content.height %}
+            <div class="mt-3 mb-2">
+                <span class="fw-700">Height:</span> {{ content.height }}m
+            </div>
+        {% endif %}
+        {% if content.width %}
+            <div class="mt-2 mb-2">
+                <span class="fw-700">Width:</span> {{ content.width }}m
+            </div>
+        {% endif %}
+        {{ content.description|raw }}
     </div>
 
     <div class="row / my-5 my-lg-8">
@@ -52,11 +106,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-    <div class="my-5 my-lg-8">
-        <h2>Description</h2>
-        {{ content.description|raw }}
     </div>
 {#    <div class="my-5 my-lg-8">#}
 {#        <h2>Germination</h2>#}

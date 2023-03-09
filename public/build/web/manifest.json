@@ -3,6 +3,10 @@
   "build/web/theme.css": "/build/web/theme.css",
   "build/web/runtime.js": "/build/web/runtime.js",
   "build/web/assets_web_js_modules_slider_js.js": "/build/web/assets_web_js_modules_slider_js.js",
+  "build/web/assets_web_js_modules_gallery_js.js": "/build/web/assets_web_js_modules_gallery_js.js",
+  "build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.css": "/build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.css",
+  "build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.js": "/build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.js",
   "build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js": "/build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js",
-  "build/web/fonts/Helvetica-Black.woff2": "/build/web/fonts/Helvetica-Black.d9ee0547.woff2"
+  "build/web/fonts/Helvetica-Black.woff2": "/build/web/fonts/Helvetica-Black.d9ee0547.woff2",
+  "build/web/images/icon-check-n-circle.svg": "/build/web/images/icon-check-n-circle.6a577eda.svg"
 }

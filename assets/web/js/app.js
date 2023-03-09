@@ -4,3 +4,7 @@ if (document.querySelector('.carousel')) {
 		new Slider.default();
 	});
 }
+
+import('./modules/gallery').then((Gallery) => {
+	new Gallery.default();
+});
