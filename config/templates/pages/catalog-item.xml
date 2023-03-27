@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <key>catalog-item</key>
@@ -14,6 +15,8 @@
     </meta>
 
     <properties>
+
+
         <property name="title" type="text_line" mandatory="true" colspan="6">
             <meta>
                 <title lang="en">Title Botanical</title>
@@ -25,6 +28,7 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
+
         <property name="url" type="resource_locator" mandatory="true" colspan="6">
             <meta>
                 <title lang="en">Resourcelocator</title>
@@ -32,6 +36,7 @@
 
             <tag name="sulu.rlp"/>
         </property>
+
 
         <property name="title_maori" type="text_line" colspan="6">
             <meta>
@@ -44,6 +49,7 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
+
         <property name="title_english" type="text_line" colspan="6">
             <meta>
                 <title lang="en">Title English</title>
@@ -55,59 +61,118 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
-        <property name="growing_categories" type="category_selection" colspan="6">
-            <meta>
-                <title lang="en">Growing Conditions Categories</title>
-            </meta>
-            <params>
-                <param name="request_parameters" type="collection">
-                    <param name="rootKey" value="growing-conditions"/>
-                </param>
-            </params>
-        </property>
 
-        <property name="uses_categories" type="category_selection" colspan="6">
+        <section name="prices_content">
             <meta>
-                <title lang="en">Uses Categories</title>
+                <title lang="en">On sale.</title>
             </meta>
-            <params>
-                <param name="request_parameters" type="collection">
-                    <param name="rootKey" value="uses"/>
-                </param>
-            </params>
-        </property>
+            <properties>
+                <block name="prices_options" default-type="prices" minOccurs="0">
+                    <meta><title lang="en">Price options</title></meta>
+                    <params>
+                        <param name="add_button_text">
+                            <meta>
+                                <title lang="en">Add sale option</title>
+                            </meta>
+                        </param>
+                        <param name="collapsable" value="false"/>
+                    </params>
+                    <types>
+                        <xi:include href="../includes/blocks/price.xml"/>
+                    </types>
+                </block>
+                <property name="images_on_sale" type="media_selection">
+                    <meta>
+                        <title lang="en">Nursery Gallery.</title>
+                    </meta>
 
-        <property name="height" type="text_line" colspan="6">
-            <meta>
-                <title lang="en">Height</title>
-            </meta>
-        </property>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
 
-        <property name="width" type="text_line" colspan="6">
-            <meta>
-                <title lang="en">Width</title>
-            </meta>
-        </property>
 
-        <property name="description" type="text_editor">
+        <section name="categories_content">
             <meta>
-                <title lang="en">Description</title>
+                <title lang="en">Categories.</title>
             </meta>
-        </property>
+            <properties>
+                <property name="growing_categories" type="category_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Growing Conditions Categories</title>
+                    </meta>
+                    <params>
+                        <param name="request_parameters" type="collection">
+                            <param name="rootKey" value="growing-conditions"/>
+                        </param>
+                    </params>
+                </property>
 
-        <property name="germination" type="text_editor">
-            <meta>
-                <title lang="en">Germination</title>
-            </meta>
-        </property>
+                <property name="uses_categories" type="category_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Uses Categories</title>
+                    </meta>
+                    <params>
+                        <param name="request_parameters" type="collection">
+                            <param name="rootKey" value="uses"/>
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
 
-        <property name="image_preview" type="single_media_selection" colspan="6">
+
+        <section name="information_content">
             <meta>
-                <title lang="en">Image Preview</title>
+                <title lang="en">Plant Information.</title>
             </meta>
-            <params>
-                <param name="types" value="image"/>
-            </params>
-        </property>
+            <properties>
+                <property name="image_preview" type="single_media_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Image Preview on Products Page</title>
+                    </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+                <property name="images_plants" type="media_selection">
+                    <meta>
+                        <title lang="en">Plant Gallery.</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+
+                <property name="height" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Height</title>
+                    </meta>
+                </property>
+
+                <property name="width" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Width</title>
+                    </meta>
+                </property>
+
+                <property name="description" type="text_editor">
+                    <meta>
+                        <title lang="en">Description</title>
+                    </meta>
+                </property>
+
+                <property name="germination" type="text_editor">
+                    <meta>
+                        <title lang="en">Germination</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+
     </properties>
 </template>
