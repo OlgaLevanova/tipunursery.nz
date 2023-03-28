@@ -45,6 +45,16 @@
             </meta>
         </property>
 
+        <property name="images_home" type="media_selection">
+            <meta>
+                <title lang="en">Home Gallery.</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+            </params>
+        </property>
+
         <section name="home_tile_1">
             <meta>
                 <title lang="en">Home page tile 1</title>

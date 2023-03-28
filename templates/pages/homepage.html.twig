@@ -4,7 +4,42 @@
 
 {% block content %}
 
-    <div class="mb-6">
+    {% if content.images_home|length > 0 %}
+        <div class="mt-6">
+
+            <div id="carouselTipu" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for image in content.images_home %}
+                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
+                            <div class="ratio ratio-16x9">
+                                <img srcset="
+                                        {{ image.thumbnails['400x.webp'] }}  400w,
+                                        {{ image.thumbnails['600x.webp'] }}  600w,
+                                        {{ image.thumbnails['800x.webp'] }}  800w,
+                                        {{ image.thumbnails['1200x.webp'] }}  1200w
+                                      "
+                                     alt="{{ image.description }}"
+                                     class="carousel-item__img object-fit-cover w-100 h-100">
+                            </div>
+                        </div>0
+                    {% endfor %}
+                </div>
+                {% if content.images_home|length > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTipu" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselTipu" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                {% endif %}
+            </div>
+
+        </div>
+    {% endif %}
+
+    <div class="my-10">
         {{ content.article|raw }}
     </div>
 

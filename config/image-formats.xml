@@ -21,6 +21,10 @@
         <scale x="800"/>
     </format>
 
+    <format key="1200x">
+        <scale x="1200"/>
+    </format>
+
     <!-- Dynamic width and fixed height -->
 <!--    <format key="x400">-->
 <!--        <scale y="400"/>-->
