@@ -50,6 +50,7 @@
                     <param name="title_maori" value="title_maori"/>
                     <param name="images" value="images"/>
                     <param name="image_preview" value="image_preview"/>
+                    <param name="prices_options" value="prices_options"/>
                 </param>
             </params>
         </property>

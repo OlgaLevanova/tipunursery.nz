@@ -9,12 +9,27 @@
 
     <ul role="menu" itemscope="" itemtype="" class="row / list-unstyled">
         {% for item in content.catalog_items|sort((a, b) => a.title <=> b.title) %}
+
+            {% set prices_options_available = 0 %}
+            {% set prices_min = 0 %}
+            {% for price_option in item.prices_options %}
+                {% if price_option.is_available %}
+                    {% if prices_min == 0 %}
+                        {% set prices_min = price_option.price %}
+                    {% endif %}
+                    {% set prices_options_available = 1 %}
+                    {% if price_option.price < prices_min %}
+                        {% set prices_min = price_option.price %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
             <li class="col-6 col-lg-4 col-xl-3 / mb-4">
                 <a
                         href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                         title="{{ item.title }}"
                         itemprop="name"
-                        class="d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
+                        class="position-relative d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
                 >
                     <span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden">
                         {% if item.image_preview %}
@@ -25,6 +40,13 @@
                         {{ item.title }}<br>
                         <span class="fst-italic fw-500">{{ item.title_maori ? item.title_maori : '&nbsp;' }}</span>
                     </span>
+                        <span class="position-absolute d-block top-0 end-0 mt-2 me-2 px-2 py-1 br-5 fs-14 / {{ prices_options_available == 0 ? 'text-white bg-red-1' : 'text-white bg-primary' }}">
+                            {% if prices_options_available == 0 %}
+                                not available
+                            {% else %}
+                                from ${{ prices_min }}
+                            {% endif %}
+                        </span>
                 </a>
             </li>
         {% endfor %}
