@@ -1,5 +1,7 @@
 {% extends "layout.html.twig" %}
 
+{% set pageTitle = false %}
+
 {% block content %}
     {# Images of the plants in Nursery #}
     {% set images_on_sale = [] %}
@@ -15,200 +17,211 @@
     {% set snippets = sulu_snippet_load_by_area('product_sale_notes_text') %}
 
 
-    <div class="row / pt-2 pt-lg-5">
+    <div class="">
+        <div class="container-xl">
+            <div class="">
+                <div class="row / pt-2 pt-lg-10">
 
-        <div class="col-12 / mb-4 / d-block d-lg-none">
-            <h1 class="mt-0 mt-lg-1 mb-0">
-                {{ content.title }}
-            </h1>
+                    <div class="col-12 / mb-4 / d-block d-lg-none">
+                        <h1 class="mt-0 mt-lg-1 mb-0">
+                            {{ content.title }}
+                        </h1>
 
-            {% if content.title_maori or content.title_english %}
-                <div class="fst-italic fw-500">
-                    {{ content.title_maori ? content.title_maori : '' }}{{ content.title_english ? ', ' ~ content.title_english : '' }}
-                </div>
-            {% endif %}
-        </div>
-
-        {% if images_on_sale|length > 0 %}
-            <div class="col-12 col-lg-7 / order-0 order-lg-0">
-
-                <div id="carouselTipu" class="carousel slide">
-                    <div class="carousel-inner">
-                        {% for image in images_on_sale %}
-                            <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
-                                <div class="ratio ratio-1x1">
-                                    <img src="{{ image.thumbnails['800x.webp'] }}" alt="{{ image.description }}" class="carousel-item__img object-fit-cover w-100 h-100">
-                                </div>
-                                <div class="carousel-item__title / d-block / px-3 py-4 / text-white fs-20 fw-400 text-center">{{ image.description ? image.description : content.title }}</div>
+                        {% if content.title_maori or content.title_english %}
+                            <div class="fst-italic fw-500">
+                                {{ content.title_maori ? content.title_maori : '' }}{{ content.title_english ? ', ' ~ content.title_english : '' }}
                             </div>
-                        {% endfor %}
-                    </div>
-                    {% if images_on_sale|length > 1 %}
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTipu" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselTipu" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    {% endif %}
-                </div>
-
-            </div>
-        {% endif %}
-
-        <div class="col-12 {{ content.image_preview ? 'col-lg-5' : '' }} / order-1 order-lg-1">
-
-            <div class="d-none d-lg-block">
-                <h1 class="mt-0 mt-lg-1 mb-2">
-                    {{ content.title }}
-                </h1>
-
-                {% if content.title_maori %}
-                    <div>
-                        <span class="fw-400">Maori name{{ ',' in content.title_maori ? 's' : '' }}:</span> <span class="fs-23">{{ content.title_maori }}</span>
-                    </div>
-                {% endif %}
-                {% if content.title_english %}
-                    <div class="mt-n1">
-                        <span class="fw-400">English name{{ ',' in content.title_english ? 's' : '' }}:</span> <span class="fs-23">{{ content.title_english }}</span>
-                    </div>
-                {% endif %}
-            </div>
-
-            <div class="row">
-                {% set prices_options_available = 0 %}
-                {% for item in content.prices_options %}
-                    {% if item.is_available %}
-                        {% set prices_options_available = 1 %}
-                    {% endif %}
-                {% endfor %}
-                <div class="col-12 / order-0 order-lg-0 / mt-7">
-                    {% if prices_options_available == 1 %}
-                        <h2 class="mb-2 fs-22">Available in our nursery</h2>
-
-                        <div class="border border-4 border-color-yellow-2">
-                            <table class="m-0 w-100 fs-18 / table table-hover">
-                                <thead>
-                                <tr class="fw-700 bg-yellow-2">
-                                    <th scope="col" class="px-4 fw-400">
-                                        Grade
-                                    </th>
-                                    <th scope="col" class="text-center fw-400">
-                                        Price each, NZD
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for item in content.prices_options %}
-                                    {% if item.is_available %}
-                                        <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
-                                            <th scope="row" class="px-4 fw-400">
-                                                {{ item.bag_size|replace({
-                                                    '_': ' '
-                                                }) }}
-                                            </th>
-                                            <td class="text-center">
-                                                ${{ item.price }}
-                                            </td>
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-
-                    {% else%}
-                        <div class="p-4 fs-22 text-center bg-secondary br-5">
-                            Sorry, it's not available right now. Come and check later.
-                        </div>
-                    {% endif %}
-                </div>
-
-                {% if prices_options_available == 1 %}
-                    <div class="col-12 / order-1 order-lg-1 / mt-7 mb-4">
-                        <div class="mb-6 px-4 py-6 / fs-16 text-grey-3 bg-grey-4">
-
-                            <h2 class="mb-4 fs-30">How to order</h2>
-                            {{ snippets.content.description|raw }}
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
-
-        </div>
-    </div>
-
-
-    <hr class="mt-12 border-primary o-100 border-top border-3">
-
-    <div class="row / my-10 my-lg-8">
-        <div class="col-12 col-md-6 / mb-4 mb-md-0">
-            <div class="h-100 / p-8 / bg-yellow-3">
-                <h2 class="fs-30 mb-4 fw-400 text-uppercase ls-0-5">Uses</h2>
-                <ul class="m-0 / list-unstyled list-icon-circle fs-20">
-                    {% for category in content.uses_categories %}
-                        <li class="py-1">{{ category.name }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="h-100 / p-8 / bg-blue-5">
-                <h2 class="fs-30 mb-4 fw-400 text-uppercase ls-0-5">Growing Conditions</h2>
-                <ul class="m-0 / list-unstyled list-icon-circle fs-20">
-                    {% for category in content.growing_categories %}
-                        <li class="py-1">{{ category.name }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <hr class="border-primary o-100 border-top border-3">
-
-
-    <div class="my-5 my-lg-12">
-
-        <div class="row align-items-center">
-            <div class="col-12 {{ images_plants|length > 0 ? 'col-lg-5' : '' }} fs-20">
-
-                <h2 class="fs-35">Description</h2>
-
-                <div class="mt-3 mb-2">
-                    Grows to a height of {{ content.height }}m.
-                </div>
-
-                {{ content.description|raw }}
-            </div>
-            {% if images_plants|length > 0 %}
-                <div class="col-12 col-lg-7">
-
-                    <div id="carouselTipu2" class="carousel slide">
-                        <div class="carousel-inner">
-                            {% for image in images_plants %}
-                                <div class="carousel-item ratio ratio-1x1 {{ loop.index0 == 0 ? 'active' : '' }}">
-                                    <img src="{{ image.thumbnails['800x.webp'] }}" alt="{{ image.description }}" class="carousel-item__img object-fit-cover w-100 h-100">
-                                </div>
-                            {% endfor %}
-                        </div>
-                        {% if images_plants|length > 1 %}
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTipu2" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselTipu2" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         {% endif %}
                     </div>
 
+                    {% if images_on_sale|length > 0 %}
+                        <div class="col-12 col-lg-6 / order-0 order-lg-0">
+
+                            <div id="carouselTipu" class="carousel slide">
+                                <div class="carousel-inner">
+                                    {% for image in images_on_sale %}
+                                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
+                                            <div class="ratio ratio-1x1">
+                                                <img src="{{ image.thumbnails['800x.webp'] }}" alt="{{ image.description }}" class="carousel-item__img object-fit-cover w-100 h-100">
+                                            </div>
+                                            <div class="carousel-item__title / d-block / px-3 py-4 / text-white fs-20 fw-400 text-center">{{ image.description ? image.description : content.title }}</div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if images_on_sale|length > 1 %}
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTipu" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselTipu" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endif %}
+
+                    <div class="col-12 {{ content.image_preview ? 'col-lg-6' : '' }} / order-1 order-lg-1">
+
+                        <div class="d-none d-lg-block">
+                            <h1 class="mt-0 mt-lg-1 mb-2 text-blue-4">
+                                {{ content.title }}
+                            </h1>
+
+                            {% if content.title_maori %}
+                                <div class="text-blue-4">
+                                    <span class="fw-400">Maori name{{ ',' in content.title_maori ? 's' : '' }}:</span> <span class="fs-23">{{ content.title_maori }}</span>
+                                </div>
+                            {% endif %}
+                            {% if content.title_english %}
+                                <div class="mt-n1 / text-blue-4">
+                                    <span class="fw-400">English name{{ ',' in content.title_english ? 's' : '' }}:</span> <span class="fs-23">{{ content.title_english }}</span>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="row">
+                            {% set prices_options_available = 0 %}
+                            {% for item in content.prices_options %}
+                                {% if item.is_available %}
+                                    {% set prices_options_available = 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-12 / order-0 order-lg-0 / mt-7">
+                                {% if prices_options_available == 1 %}
+                                    <h2 class="mb-2 fs-22">Available in nursery</h2>
+
+                                    <div class="border border-4 border-color-yellow-2">
+                                        <table class="m-0 w-100 fs-18 / table table-hover / bg-white">
+                                            <thead>
+                                            <tr class="fw-700 bg-yellow-2">
+                                                <th scope="col" class="px-4 fw-400">
+                                                    Grade
+                                                </th>
+                                                <th scope="col" class="text-center fw-400">
+                                                    Price each, NZD
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for item in content.prices_options %}
+                                                {% if item.is_available %}
+                                                    <tr class="{{  item.is_available ? '' : 'bg-red-5' }}">
+                                                        <th scope="row" class="px-4 fw-400">
+                                                            {{ item.bag_size|replace({
+                                                                '_': ' '
+                                                            }) }}
+                                                        </th>
+                                                        <td class="text-center">
+                                                            ${{ item.price }}
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                {% else%}
+                                    <div class="p-4 fs-22 text-center bg-secondary br-5">
+                                        Sorry, it's not available right now. Come and check later.
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            {% if prices_options_available == 1 %}
+                                <div class="col-12 / order-1 order-lg-1 / mt-7 mb-4">
+                                    <div class="mb-6 px-4 py-6 / fs-16 text-grey-3 bg-grey-4">
+
+                                        <h2 class="mb-4 fs-30">How to order</h2>
+                                        {{ snippets.content.description|raw }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
                 </div>
-            {% endif %}
+            </div>
         </div>
     </div>
+
+
+    <div class="container-xl">
+        <hr class="mt-12 border-primary o-100 border-top border-3">
+
+        <div class="row / my-10 my-lg-8">
+            <div class="col-12 col-md-6 / mb-4 mb-md-0">
+                <div class="h-100 / p-8 / bg-yellow-3">
+                    <h2 class="fs-30 mb-4 fw-400 text-uppercase ls-0-5">Uses</h2>
+                    <ul class="m-0 / list-unstyled list-icon-circle fs-20">
+                        {% for category in content.uses_categories %}
+                            <li class="py-1">{{ category.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="h-100 / p-8 / bg-blue-5">
+                    <h2 class="fs-30 mb-4 fw-400 text-uppercase ls-0-5">Growing Conditions</h2>
+                    <ul class="m-0 / list-unstyled list-icon-circle fs-20">
+                        {% for category in content.growing_categories %}
+                            <li class="py-1">{{ category.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-primary o-100 border-top border-3">
+
+
+        <div class="my-5 my-lg-12">
+
+            <div class="row align-items-center">
+                <div class="col-12 {{ images_plants|length > 0 ? 'col-lg-5' : '' }} fs-20">
+
+                    <h2 class="fs-35">Description</h2>
+
+                    <div class="mt-3 mb-2">
+                        Grows to a height of {{ content.height }}m.
+                    </div>
+
+                    {{ content.description|raw }}
+                </div>
+                {% if images_plants|length > 0 %}
+                    <div class="col-12 col-lg-7">
+
+                        <div id="carouselTipu2" class="carousel slide">
+                            <div class="carousel-inner">
+                                {% for image in images_plants %}
+                                    <div class="carousel-item ratio ratio-1x1 {{ loop.index0 == 0 ? 'active' : '' }}">
+                                        <img src="{{ image.thumbnails['800x.webp'] }}" alt="{{ image.description }}" class="carousel-item__img object-fit-cover w-100 h-100">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if images_plants|length > 1 %}
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTipu2" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselTipu2" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 

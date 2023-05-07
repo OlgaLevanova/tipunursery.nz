@@ -6,14 +6,10 @@
 
 
 {% block body %}
-  <main class="content / py-6">
-    <div class="container">
-      {% if (pageTitle is defined and pageTitle != false) or (pageTitle is not defined) %}
-        <h1 class="mt-2 mt-lg-6 mb-4">{{ pageTitle is defined ? pageTitle : content.title }}</h1>
-      {% endif %}
+  {% block hero %}{% endblock %}
 
+  <main class="content">
       {% block content %}{% endblock %}
-    </div>
   </main>
 {% endblock %}
 

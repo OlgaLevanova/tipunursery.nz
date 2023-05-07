@@ -2,25 +2,32 @@
 
 {% set pageTitle = content.page_title %}
 
-{% block content %}
-
+{% block hero %}
     {% if content.images_home|length > 0 %}
-        <div class="mt-6">
+        <div>
 
             <div id="carouselTipu" class="carousel slide">
                 <div class="carousel-inner">
                     {% for image in content.images_home %}
-                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
-                            <div class="ratio ratio-16x9">
-                                <img srcset="
+                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}" style="height:700px;">
+{#                            <div class="ratio ratio-16x9">#}
+{#                                <img srcset="#}
+{#                                        {{ image.thumbnails['400x.webp'] }}  400w,#}
+{#                                        {{ image.thumbnails['600x.webp'] }}  600w,#}
+{#                                        {{ image.thumbnails['800x.webp'] }}  800w,#}
+{#                                        {{ image.thumbnails['1200x.webp'] }}  1200w#}
+{#                                      "#}
+{#                                     alt="{{ image.description }}"#}
+{#                                     class="carousel-item__img object-fit-cover w-100 h-100">#}
+{#                            </div>#}
+                            <img srcset="
                                         {{ image.thumbnails['400x.webp'] }}  400w,
                                         {{ image.thumbnails['600x.webp'] }}  600w,
                                         {{ image.thumbnails['800x.webp'] }}  800w,
                                         {{ image.thumbnails['1200x.webp'] }}  1200w
                                       "
-                                     alt="{{ image.description }}"
-                                     class="carousel-item__img object-fit-cover w-100 h-100">
-                            </div>
+                                 alt="{{ image.description }}"
+                                 class="carousel-item__img object-fit-cover w-100 h-100">
                         </div>0
                     {% endfor %}
                 </div>
@@ -38,9 +45,40 @@
 
         </div>
     {% endif %}
+{% endblock %}
 
-    <div class="my-10">
-        {{ content.article|raw }}
+{% block content_layout %}
+    <div class="bg-yellow-3 / py-12">
+        <div class="container-xl">
+            <h1 class="mb-4">Welcome to Tipu Nursery</h1>
+
+            <div>
+                {{ content.article|raw }}
+            </div>
+        </div>
     </div>
-
+    <div class="container-xl / pb-12">
+        <div class="row align-items-center / pt-12">
+            <div class="col-8">
+                <div class="ratio ratio-16x9">
+                    <img src="https://127.0.0.1:8000/uploads/media/1200x/06/56-PXL_20221101_001420027.webp?v=1-0" alt=""
+                         class="object-fit-cover w-100 h-100">
+                </div>
+            </div>
+            <div class="col-4">
+                A shortage of certain mineral nutrients, such as nitrogen and magnesium, can also affect the rate of photosynthesis. Nitrogen and magnesium make up the pigment, chlorophyll. Plants deficient in either of these nutrients generally have paler green to yellowish leaves.
+            </div>
+        </div>
+        <div class="row align-items-center / pt-12">
+            <div class="col-8 / order-1">
+                <div class="ratio ratio-16x9">
+                    <img src="https://127.0.0.1:8000/uploads/media/1200x/09/59-PXL_20230326_000331897.webp?v=1-0" alt=""
+                         class="object-fit-cover w-100 h-100">
+                </div>
+            </div>
+            <div class="col-4 / order-0">
+                A shortage of certain mineral nutrients, such as nitrogen and magnesium, can also affect the rate of photosynthesis. Nitrogen and magnesium make up the pigment, chlorophyll. Plants deficient in either of these nutrients generally have paler green to yellowish leaves.
+            </div>
+        </div>
+    </div>
 {% endblock %}
