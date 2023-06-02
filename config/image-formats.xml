@@ -20,9 +20,14 @@
     <format key="800x">
         <scale x="800"/>
     </format>
-
     <format key="1200x">
         <scale x="1200"/>
+    </format>
+    <format key="1600x">
+        <scale x="1600"/>
+    </format>
+    <format key="1800x">
+        <scale x="1800"/>
     </format>
 
     <!-- Dynamic width and fixed height -->

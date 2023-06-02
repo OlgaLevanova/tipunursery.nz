@@ -6,15 +6,28 @@
 
 */
 
-$font-path: '/public/assets/fonts/Helvetica-Black/';
+$font-path: '/public/assets/fonts/Fixel/';
 
 // ----------------------------------
 
-// Helvetica Black
 @font-face {
-  font-family:'Helvetica-Black';
+  font-family:'Fixel';
   font-style:normal;
-  font-weight:bold;
-  src:url($font-path + 'Helvetica-Black.woff2') format('woff2');
+  font-weight:400;
+  src:url($font-path + 'FixelText-Regular.woff2') format('woff2');
+  font-display:auto;
+}
+@font-face {
+  font-family:'Fixel-Medium';
+  font-style:normal;
+  font-weight:500;
+  src:url($font-path + 'FixelText-Medium.woff2') format('woff2');
+  font-display:auto;
+}
+@font-face {
+  font-family:'Fixel-Bold';
+  font-style:normal;
+  font-weight:700;
+  src:url($font-path + 'FixelText-Bold.woff2') format('woff2');
   font-display:auto;
 }
