@@ -30,7 +30,7 @@
                                       "
                                  alt="{{ image.description }}"
                                  class="carousel-item__img object-fit-cover w-100 h-100">
-                        </div>0
+                        </div>
                     {% endfor %}
                 </div>
                 {% if content.images_home|length > 1 %}
@@ -52,11 +52,10 @@
 {% block content %}
     <div class="bg-yellow-3 / py-7 py-lg-12">
         <div class="container-xl">
-            <h1 class="mb-4 / text-primary">Welcome to Tipu Nursery</h1>
+            <h1 class="mb-4 / text-primary">{{ content.page_title }}</h1>
 
             <div>
-{#                {{ content.article|raw }}#}
-                Discover our hidden gem, a small New Zealand native plant nursery tucked away in an Auckland backyard. Step into a vibrant world of colors, scents, and textures, where we nurture and propagate indigenous flora. From majestic Pohutukawa to delicate Koromiko, our collection showcases the diversity of New Zealand's plants, including rare and endangered species. With a focus on conservation and sustainability, we provide expert guidance and promote organic growing practices. Immerse yourself in our backyard sanctuary, connecting with the rich cultural heritage and ecological significance of our native plants. Experience the wonders of New Zealand's botanical treasures in our intimate nursery.
+                {{ content.article|raw }}
             </div>
         </div>
     </div>
@@ -86,22 +85,29 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-8 / order-1">
                     <div class="ratio ratio-1x1">
-                        <img src="/assets/images/market.jpg" alt=""
-                             class="object-fit-cover w-100 h-100">
+                        {% set image = content.special_block_images %}
+                        {% if image %}
+                            <img srcset="
+                                    {{ image.thumbnails['400x.webp'] }}  400w,
+                                    {{ image.thumbnails['600x.webp'] }}  600w,
+                                    {{ image.thumbnails['800x.webp'] }}  800w,
+                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                  "
+                                 alt="{{ image.title }}"
+                                 title="{{ image.description|default(image.title) }}"
+                                 class="object-fit-cover w-100 h-100">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 / order-0">
                     <div class="pe-6 / text-left / text-white">
-                        <h2 class="mb-5 / text-white">Plants sale on local markets</h2>
+                        <h2 class="mb-5 / text-white">{{ content.special_block_title }}</h2>
                         <div class="pb-8 / text-white">
-                            Every 2 week I come to the market to sale my plants. Please come and check what I have.
+                            {{ content.special_block_article|raw }}
                         </div>
                         <div class="pb-4 / text-white">
-                            <h3 class="mb-4 / text-white">Next sale</h3>
-                            4 of June,<br>
-                            Auckland Netball Centre,<br>
-                            7 Allison Ferguson Drive,<br>
-                            Saint Johns, Auckland
+                            <h3 class="mb-4 / text-white">{{ content.special_block_sale_title }}</h3>
+                            {{ content.special_block_sale|raw }}
                         </div>
                     </div>
                 </div>
@@ -113,38 +119,49 @@
         <div class="row align-items-center / pt-7 pt-lg-12">
             <div class="col-12 col-lg-7">
                 <div class="ratio ratio-1x1">
-                    <img src="/assets/images/IMG_20171224_162741_1.jpg"
-                         alt="NZ Forest"
-                         class="object-fit-cover w-100 h-100">
+                    {% set image = content.home_tile_1_images %}
+                    {% if image %}
+                        <img srcset="
+                                    {{ image.thumbnails['400x.webp'] }}  400w,
+                                    {{ image.thumbnails['600x.webp'] }}  600w,
+                                    {{ image.thumbnails['800x.webp'] }}  800w,
+                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                  "
+                             alt="{{ image.title }}"
+                             title="{{ image.description|default(image.title) }}"
+                             class="object-fit-cover w-100 h-100">
+                    {% endif %}
                 </div>
             </div>
             <div class="col-12 col-lg-5">
                 <div class="ps-lg-6 / text-center">
-                    <h2 class="mb-5 mt-5 mt-lg-0 / text-primary">Unique New Zealand native flora</h2>
-                    Native plants play a vital role in New Zealand's environment. They support biodiversity, provide
-                    habitat for native wildlife, and contribute to ecosystem resilience. Preserving and promoting native
-                    species is crucial for maintaining the unique ecological balance and cultural heritage of the country.
+                    <h2 class="mb-5 mt-5 mt-lg-0 / text-primary">{{ content.home_tile_1_title }}</h2>
+                    {{ content.home_tile_1_article|raw }}
                 </div>
             </div>
         </div>
         <div class="row align-items-center / pt-7 pt-lg-12">
             <div class="col-12 col-lg-8 / order-0 order-lg-1">
                 <div class="ratio ratio-1x1">
-                    <img src="/uploads/media/1200x/09/59-PXL_20230326_000331897.webp?v=1-0" alt=""
-                         class="object-fit-cover w-100 h-100">
+                    {% set image = content.home_tile_2_images %}
+                    {% if image %}
+                        <img srcset="
+                                    {{ image.thumbnails['400x.webp'] }}  400w,
+                                    {{ image.thumbnails['600x.webp'] }}  600w,
+                                    {{ image.thumbnails['800x.webp'] }}  800w,
+                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                  "
+                             alt="{{ image.title }}"
+                             title="{{ image.description|default(image.title) }}"
+                             class="object-fit-cover w-100 h-100">
+                    {% endif %}
                 </div>
             </div>
             <div class="col-12 col-lg-4 / order-1 order-lg-0">
                 <div class="pe-lg-6 / text-center">
-                    <h2 class="mb-5 mt-5 mt-lg-0 / text-primary">Title</h2>
-                    Eco-sourcing<br>
-                    Forest restoration project<br>
-                    Restoration, regeneration<br><br>
-                    https://kahikateafarm.co.nz/about/<br>
-                    https://ruraldesign.co.nz/<br>
-                    https://www.kuranga.com.au/native-nursery/<br><br>
+                    <h2 class="mb-5 mt-5 mt-lg-0 / text-primary">{{ content.home_tile_2_title }}</h2>
 
-                    A shortage of certain mineral nutrients, such as nitrogen and magnesium, can also affect the rate of photosynthesis. Nitrogen and magnesium make up the pigment, chlorophyll. Plants deficient in either of these nutrients generally have paler green to yellowish leaves.
+                    {{ content.home_tile_2_article|raw }}
                 </div>
             </div>
         </div>

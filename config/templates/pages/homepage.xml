@@ -55,6 +55,48 @@
             </params>
         </property>
 
+        <section name="special_block">
+            <meta>
+                <title lang="en">Special block</title>
+            </meta>
+
+            <properties>
+                <property name="special_block_title" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Title</title>
+                    </meta>
+                </property>
+
+                <property name="special_block_sale_title" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Sale title</title>
+                    </meta>
+                </property>
+
+                <property name="special_block_article" type="text_editor" colspan="6">
+                    <meta>
+                        <title lang="en">Text</title>
+                    </meta>
+                </property>
+
+                <property name="special_block_sale" type="text_editor" colspan="6">
+                    <meta>
+                        <title lang="en">Next sale</title>
+                    </meta>
+                </property>
+
+                <property name="special_block_images" type="single_media_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Image</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
         <section name="home_tile_1">
             <meta>
                 <title lang="en">Home page tile 1</title>
@@ -67,20 +109,20 @@
                     </meta>
                 </property>
 
-                <property name="home_tile_1_page" type="single_page_selection" colspan="3">
+                <property name="home_tile_1_images" type="single_media_selection" colspan="6">
                     <meta>
-                        <title lang="en">Page link</title>
-                    </meta>
-                </property>
-
-                <property name="home_tile_1_images" type="single_media_selection" colspan="3">
-                    <meta>
-                        <title lang="en">Background Image</title>
+                        <title lang="en">Image</title>
                     </meta>
 
                     <params>
                         <param name="types" value="image"/>
                     </params>
+                </property>
+
+                <property name="home_tile_1_article" type="text_editor">
+                    <meta>
+                        <title lang="en">Text</title>
+                    </meta>
                 </property>
             </properties>
         </section>
@@ -97,20 +139,20 @@
                     </meta>
                 </property>
 
-                <property name="home_tile_2_page" type="single_page_selection" colspan="3">
+                <property name="home_tile_2_images" type="single_media_selection" colspan="6">
                     <meta>
-                        <title lang="en">Page link</title>
-                    </meta>
-                </property>
-
-                <property name="home_tile_2_images" type="single_media_selection" colspan="3">
-                    <meta>
-                        <title lang="en">Background Image</title>
+                        <title lang="en">Image</title>
                     </meta>
 
                     <params>
                         <param name="types" value="image"/>
                     </params>
+                </property>
+
+                <property name="home_tile_2_article" type="text_editor">
+                    <meta>
+                        <title lang="en">Text</title>
+                    </meta>
                 </property>
             </properties>
         </section>

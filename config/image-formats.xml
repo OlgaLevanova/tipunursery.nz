@@ -20,6 +20,9 @@
     <format key="800x">
         <scale x="800"/>
     </format>
+    <format key="910x">
+        <scale x="910"/>
+    </format>
     <format key="1200x">
         <scale x="1200"/>
     </format>
