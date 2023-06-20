@@ -1,5 +1,13 @@
 .carousel-item{
 	position:relative;
+	height:200px;
+
+	@include media-breakpoint-up(sm) {
+		height:300px;
+	}
+	@include media-breakpoint-up(lg) {
+		height:700px;
+	}
 }
 .carousel-item__img{
 	border-radius:5px 5px 0 0;

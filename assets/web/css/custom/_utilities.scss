@@ -53,6 +53,12 @@
   }
 }
 
+.max-width-lg{
+  @include media-breakpoint-up(lg) {
+    max-width:map-get($container-max-widths, lg);
+  }
+}
+
 .img-hover{
   img{
     transition:all 0.2s;

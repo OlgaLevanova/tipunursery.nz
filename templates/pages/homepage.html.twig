@@ -9,17 +9,7 @@
             <div id="carouselTipu" class="carousel slide">
                 <div class="carousel-inner">
                     {% for image in content.images_home %}
-                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}" style="height:700px;">
-{#                            <div class="ratio ratio-16x9">#}
-{#                                <img srcset="#}
-{#                                        {{ image.thumbnails['400x.webp'] }}  400w,#}
-{#                                        {{ image.thumbnails['600x.webp'] }}  600w,#}
-{#                                        {{ image.thumbnails['800x.webp'] }}  800w,#}
-{#                                        {{ image.thumbnails['1200x.webp'] }}  1200w#}
-{#                                      "#}
-{#                                     alt="{{ image.description }}"#}
-{#                                     class="carousel-item__img object-fit-cover w-100 h-100">#}
-{#                            </div>#}
+                        <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">
                             <img srcset="
                                         {{ image.thumbnails['400x.webp'] }}  400w,
                                         {{ image.thumbnails['600x.webp'] }}  600w,
@@ -27,6 +17,7 @@
                                         {{ image.thumbnails['1200x.webp'] }}  1200w,
                                         {{ image.thumbnails['1600x.webp'] }}  1600w,
                                         {{ image.thumbnails['1800x.webp'] }}  1800w,
+                                        {{ image.thumbnails['2500x.webp'] }}  2500w,
                                       "
                                  alt="{{ image.description }}"
                                  class="carousel-item__img object-fit-cover w-100 h-100">
@@ -51,47 +42,26 @@
 
 {% block content %}
     <div class="bg-yellow-3 / py-7 py-lg-12">
-        <div class="container-xl">
+        <div class="container-xl max-width-lg">
             <h1 class="mb-4 / text-primary">{{ content.page_title }}</h1>
 
-            <div>
+            <div class="fs-24">
                 {{ content.article|raw }}
             </div>
         </div>
     </div>
 
-{#    <div class="container-xl / pt-12">#}
-{#        <div class="bg-blue-4 / px-10 py-10">#}
-{#            <h2 class="mb-5 / text-white">Plants sale on local markets</h2>#}
-
-{#            <div class="pb-4 / text-white">#}
-{#                Every 2 week I come to the market to sale my plants. Please come and check what I have.#}
-{#            </div>#}
-{#            <div class="pb-4 / text-white">#}
-{#                <h3 class="mb-4 / text-white">Next sale</h3>#}
-{#                4 of June,<br>#}
-{#                Auckland Netball Centre,<br>#}
-{#                7 Allison Ferguson Drive,<br>#}
-{#                Saint Johns, Auckland#}
-{#            </div>#}
-
-{#            <img src="/assets/images/market.jpg" alt=""#}
-{#                 class="w-100">#}
-{#        </div>#}
-{#    </div>#}
-
     <div class="container-xl / pt-7 pt-lg-12">
         <div class="bg-blue-4 / px-4 py-6 px-lg-8 py-lg-8">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-8 / order-1">
+                <div class="col-12 col-lg-7 / order-1">
                     <div class="ratio ratio-1x1">
                         {% set image = content.special_block_images %}
                         {% if image %}
                             <img srcset="
                                     {{ image.thumbnails['400x.webp'] }}  400w,
                                     {{ image.thumbnails['600x.webp'] }}  600w,
-                                    {{ image.thumbnails['800x.webp'] }}  800w,
-                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                    {{ image.thumbnails['800x.webp'] }}  800w
                                   "
                                  alt="{{ image.title }}"
                                  title="{{ image.description|default(image.title) }}"
@@ -99,7 +69,7 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 / order-0">
+                <div class="col-12 col-lg-5 / order-0">
                     <div class="pe-6 / text-left / text-white">
                         <h2 class="mb-5 / text-white">{{ content.special_block_title }}</h2>
                         <div class="pb-8 / text-white">
@@ -124,8 +94,7 @@
                         <img srcset="
                                     {{ image.thumbnails['400x.webp'] }}  400w,
                                     {{ image.thumbnails['600x.webp'] }}  600w,
-                                    {{ image.thumbnails['800x.webp'] }}  800w,
-                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                    {{ image.thumbnails['800x.webp'] }}  800w
                                   "
                              alt="{{ image.title }}"
                              title="{{ image.description|default(image.title) }}"
@@ -141,15 +110,14 @@
             </div>
         </div>
         <div class="row align-items-center / pt-7 pt-lg-12">
-            <div class="col-12 col-lg-8 / order-0 order-lg-1">
+            <div class="col-12 col-lg-7 / order-0 order-lg-1">
                 <div class="ratio ratio-1x1">
                     {% set image = content.home_tile_2_images %}
                     {% if image %}
                         <img srcset="
                                     {{ image.thumbnails['400x.webp'] }}  400w,
                                     {{ image.thumbnails['600x.webp'] }}  600w,
-                                    {{ image.thumbnails['800x.webp'] }}  800w,
-                                    {{ image.thumbnails['910x.webp'] }}  910w
+                                    {{ image.thumbnails['800x.webp'] }}  800w
                                   "
                              alt="{{ image.title }}"
                              title="{{ image.description|default(image.title) }}"
@@ -157,7 +125,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-lg-4 / order-1 order-lg-0">
+            <div class="col-12 col-lg-5 / order-1 order-lg-0">
                 <div class="pe-lg-6 / text-center">
                     <h2 class="mb-5 mt-5 mt-lg-0 / text-primary">{{ content.home_tile_2_title }}</h2>
 
