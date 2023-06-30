@@ -15,19 +15,26 @@ $font-path: '/public/assets/fonts/Fixel/';
   font-style:normal;
   font-weight:400;
   src:url($font-path + 'FixelText-Regular.woff2') format('woff2');
-  font-display:auto;
+  font-display:swap;
 }
 @font-face {
-  font-family:'Fixel-Medium';
+  font-family:'Fixel';
   font-style:normal;
   font-weight:500;
   src:url($font-path + 'FixelText-Medium.woff2') format('woff2');
-  font-display:auto;
+  font-display:swap;
 }
 @font-face {
-  font-family:'Fixel-Bold';
+  font-family:'Fixel';
+  font-style:normal;
+  font-weight:600;
+  src:url($font-path + 'FixelText-SemiBold.woff2') format('woff2');
+  font-display:swap;
+}
+@font-face {
+  font-family:'Fixel';
   font-style:normal;
   font-weight:700;
   src:url($font-path + 'FixelText-Bold.woff2') format('woff2');
-  font-display:auto;
+  font-display:swap;
 }

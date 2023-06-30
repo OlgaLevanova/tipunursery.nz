@@ -1,13 +1,15 @@
 {
-  "build/web/app.js": "/build/web/app.3ac43874.js",
-  "build/web/theme.css": "/build/web/theme.40c3dfda.css",
-  "build/web/runtime.js": "/build/web/runtime.83b37dac.js",
-  "build/web/320.59ad15bb.js": "/build/web/320.59ad15bb.js",
-  "build/web/221.faf4ae44.js": "/build/web/221.faf4ae44.js",
-  "build/web/48.60d2032a.js": "/build/web/48.60d2032a.js",
-  "build/web/12.642c017c.css": "/build/web/12.642c017c.css",
+  "build/web/app.js": "/build/web/app.js",
+  "build/web/theme.css": "/build/web/theme.css",
+  "build/web/runtime.js": "/build/web/runtime.js",
+  "build/web/assets_web_js_modules_slider_js.js": "/build/web/assets_web_js_modules_slider_js.js",
+  "build/web/assets_web_js_modules_gallery_js.js": "/build/web/assets_web_js_modules_gallery_js.js",
+  "build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.css": "/build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.css",
+  "build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.js": "/build/web/vendors-node_modules_photoswipe_dist_photoswipe_css-node_modules_swiper_modules_navigation_na-74ac0e.js",
+  "build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js": "/build/web/vendors-node_modules_bootstrap_js_dist_carousel_js.js",
   "build/web/fonts/FixelText-Bold.woff2": "/build/web/fonts/FixelText-Bold.82b54d6e.woff2",
   "build/web/fonts/FixelText-Medium.woff2": "/build/web/fonts/FixelText-Medium.83d3b71f.woff2",
   "build/web/fonts/FixelText-Regular.woff2": "/build/web/fonts/FixelText-Regular.45eff5db.woff2",
-  "build/web/images/icon-check-n-circle.svg": "/build/web/images/icon-check-n-circle.6a577eda.svg"
+  "build/web/images/icon-check-n-circle.svg": "/build/web/images/icon-check-n-circle.6a577eda.svg",
+  "build/web/fonts/FixelText-SemiBold.woff2": "/build/web/fonts/FixelText-SemiBold.ce5d69a5.woff2"
 }

@@ -2,8 +2,24 @@
 
 {% block content %}
     <div class="container-xl">
-        <h1 class="mt-2 mt-lg-6 mb-4 text-blue-4">{{ content.title }}</h1>
 
-        {{ content.article|raw }}
+        {% if content.image %}
+            <div class="row align-items-center / pt-6 pt-lg-10">
+                <div class="col-6">
+                    <h1 class="mt-2 mt-lg-6 mb-4 text-blue-4">{{ content.title }}</h1>
+                    <div class="fs-22">
+                        {{ content.article|raw }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ratio ratio-1x1">
+                        <img src="{{ content.image.thumbnails['910x.webp'] }}" alt="{{ content.title }}" class="w-100 h-100 object-fit-cover img-hover" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h1 class="mt-2 mt-lg-6 mb-4 text-blue-4">{{ content.title }}</h1>
+            {{ content.article|raw }}
+        {% endif %}
     </div>
 {% endblock %}
