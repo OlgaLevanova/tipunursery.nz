@@ -45,7 +45,7 @@
                             {{ item.title }}<br>
                             <span class="fst-italic fw-500">{{ item.title_maori ? item.title_maori : '&nbsp;' }}</span>
                         </span>
-                            <span class="position-absolute d-block top-0 end-0 mt-2 me-2 px-2 py-1 br-5 fs-14 / {{ prices_options_available == 0 ? 'text-white bg-red-1' : 'text-white bg-primary' }}">
+                            <span class="position-absolute d-block top-0 end-0 mt-2 me-2 px-2 py-1 br-5 fs-14 fw-600 / {{ prices_options_available == 0 ? 'text-white bg-red-1' : 'text-white bg-primary' }}">
                                 {% if prices_options_available == 0 %}
                                     Sold out
                                 {% else %}

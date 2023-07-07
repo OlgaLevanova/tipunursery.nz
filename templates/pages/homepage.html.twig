@@ -6,7 +6,7 @@
     {% if content.images_home|length > 0 %}
         <div>
 
-            <div id="carouselTipu" class="carousel slide">
+            <div id="carouselTipu" class="carousel carousel--hero slide">
                 <div class="carousel-inner">
                     {% for image in content.images_home %}
                         <div class="carousel-item {{ loop.index0 == 0 ? 'active' : '' }}">

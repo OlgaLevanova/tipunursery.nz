@@ -1,26 +1,25 @@
 .carousel-item{
 	position:relative;
-	//height:200px;
-	//
-	//@include media-breakpoint-up(sm) {
-	//	height:300px;
-	//}
-	//@include media-breakpoint-up(lg) {
-	//	height:700px;
-	//}
+
+	.carousel--hero &{
+		height:200px;
+
+		@include media-breakpoint-up(sm) {
+			height:300px;
+		}
+		@include media-breakpoint-up(lg) {
+			height:700px;
+		}
+	}
 }
 .carousel-item__img{
 	border-radius:5px 5px 0 0;
 }
 .carousel-item__title{
-	//position:absolute;
-	//right:0;
-	//bottom:0;
-	//left:0;
-	border:1px solid map-get($custom-colors, "grey-5");
-	border-top-width:0;
-	border-radius:0 0 5px 5px;
-	box-shadow:inset #EAEAEA 0 0 5px;
+	position:absolute;
+	bottom:20px;
+	left:20px;
+	border-radius:5px;
 }
 .carousel-control-prev,
 .carousel-control-next{
