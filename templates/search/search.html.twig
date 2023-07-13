@@ -1,15 +1,43 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <h2>Showing {{ hits|length }} results for "{{ query }}"</h2>
+    <div class="container container--search">
+        <div class="pt-6 pt-lg-7">
+            <h1 class="mb-4 text-blue-4">Showing {{ hits|length }} results for "{{ query }}"</h1>
 
-    <ul>
-        {% for i, hit in hits %}
-            <li>
-                <a href="{{ hit.document.url }}">
-                    {{- hit.document.title -}}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+            <ul role="menu" itemscope="" itemtype="" class="row / list-unstyled">
+                {% for i, hit in hits %}
+                    {% set page_template = hit.document.fields._structure_type.value|default %}
+
+                    {% if page_template == 'catalog-item' %}
+                        {% set item = sulu_content_load(hit.id, {
+                            'title': 'title',
+                            'prices_options': 'prices_options',
+                            'image_preview': 'image_preview',
+                        }).content %}
+
+                        {% include 'includes/_catalog-list-item.html.twig' with {
+                            url: hit.document.url,
+                            title: hit.document.title,
+                            title_maori: hit.document.fields.title_maori.value ? hit.document.fields.title_maori.value : '&nbsp;'
+                        } %}
+                    {% else %}
+                        <li>
+                            <a
+                                href="{{ hit.document.url }}"
+                                title="{{ hit.document.title }}"
+                                itemprop="name"
+                                class="position-relative d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
+                            >
+                                <span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">
+                                    {{ hit.document.title }}
+                                </span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

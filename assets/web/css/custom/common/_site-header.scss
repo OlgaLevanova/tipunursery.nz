@@ -16,3 +16,20 @@
 		height:80px;
 	}
 }
+.header{
+	[role="menu"] {
+		li:not(:last-child){
+			padding-top:1px;
+		}
+	}
+}
+.btn-search,
+.btn-enter{
+	svg{
+		width:30px;
+		height:30px;
+	}
+	path{
+		fill:$primary;
+	}
+}
