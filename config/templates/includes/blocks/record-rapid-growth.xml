@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<type name="record-rapid-growth" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://schemas.sulu.io/template/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <meta>
+        <title lang="en">Rapid growth record</title>
+    </meta>
+
+    <properties>
+
+        <property name="date-replanting" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date of replanting</title>
+            </meta>
+        </property>
+
+        <property name="container-type" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Container type</title>
+            </meta>
+        </property>
+
+        <property name="plant-size-start" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Plant size at start of phase</title>
+            </meta>
+        </property>
+
+        <property name="plant-size-end" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Plant size at end of phase</title>
+            </meta>
+        </property>
+
+        <property name="date-end" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date phase completed</title>
+            </meta>
+        </property>
+
+        <property name="notes" type="text_editor">
+            <meta>
+                <title lang="en">Notes</title>
+            </meta>
+        </property>
+    </properties>
+</type>

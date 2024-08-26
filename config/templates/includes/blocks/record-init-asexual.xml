@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<type name="record-init-asexual" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://schemas.sulu.io/template/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <meta>
+        <title lang="en">Initial record for the asexual propogation</title>
+    </meta>
+
+    <properties>
+
+        <property name="propagule-source" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Propagule source</title>
+            </meta>
+        </property>
+
+        <property name="date-collection" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date of propagule collection</title>
+            </meta>
+        </property>
+
+    </properties>
+</type>

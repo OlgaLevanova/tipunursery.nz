@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>products-list</key>
+
+    <view>pages/products-list</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Products List</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <property name="title_available" type="text_line">
+            <meta>
+                <title lang="en">Title available plants</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="title_growing" type="text_line">
+            <meta>
+                <title lang="en">Title growing plants</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="catalog_items" type="smart_content">
+            <meta>
+                <title lang="en">Items</title>
+            </meta>
+            <params>
+                <param name="provider" value="pages"/>
+                <param name="properties" type="collection">
+                    <param name="title" value="title"/>
+                    <param name="title_maori" value="title_maori"/>
+                    <param name="title_english" value="title_english"/>
+                    <param name="prices_options" value="prices_options"/>
+                </param>
+            </params>
+        </property>
+    </properties>
+</template>

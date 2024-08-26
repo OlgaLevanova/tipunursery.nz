@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>development-record</key>
+
+    <view>pages/development-record</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Development record</title>
+    </meta>
+
+    <properties>
+
+
+        <property name="title" type="text_line" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Record index</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+
+        <property name="url" type="resource_locator" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <section name="prices_content">
+            <meta>
+                <title lang="en">Records</title>
+            </meta>
+            <properties>
+                <block name="records" default-type="record-replant" minOccurs="0">
+                    <meta><title lang="en">Records</title></meta>
+                    <params>
+                        <param name="add_button_text">
+                            <meta>
+                                <title lang="en">Add record</title>
+                            </meta>
+                        </param>
+                        <param name="collapsable" value="false"/>
+                    </params>
+                    <types>
+                        <xi:include href="../includes/blocks/record-establishment-asexual.xml"/>
+                        <xi:include href="../includes/blocks/record-establishment-sexual.xml"/>
+                        <xi:include href="../includes/blocks/record-hardening.xml"/>
+                        <xi:include href="../includes/blocks/record-init-asexual.xml"/>
+                        <xi:include href="../includes/blocks/record-init-seedlings.xml"/>
+                        <xi:include href="../includes/blocks/record-init-sexual.xml"/>
+                        <xi:include href="../includes/blocks/record-rapid-growth.xml"/>
+                        <xi:include href="../includes/blocks/record-replant.xml"/>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+    </properties>
+</template>

@@ -29,8 +29,17 @@
             <tag name="sulu.search.field" role="title" />
         </property>
 
+        <property name="title_short" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">Short title</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+        </property>
 
-        <property name="url" type="resource_locator" mandatory="true" colspan="6">
+
+        <property name="url" type="resource_locator" mandatory="true" colspan="12">
             <meta>
                 <title lang="en">Resourcelocator</title>
             </meta>
@@ -54,7 +63,7 @@
 
         <property name="title_english" type="text_line" colspan="6">
             <meta>
-                <title lang="en">Title English</title>
+                <title lang="en">Title Others</title>
             </meta>
             <params>
                 <param name="headline" value="true"/>

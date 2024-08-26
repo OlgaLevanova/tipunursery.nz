@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<type name="record-establishment-sexual" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://schemas.sulu.io/template/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <meta>
+        <title lang="en">Establishment sexual record</title>
+    </meta>
+
+    <properties>
+
+        <property name="stratified" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Type and length of propagule treatment  for example, scarified, stratified</title>
+            </meta>
+        </property>
+
+        <property name="date-establishment" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date of propagule establishment</title>
+            </meta>
+        </property>
+
+        <property name="date-transplanted" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date transplanted (if not direct sown)</title>
+            </meta>
+        </property>
+
+        <property name="date-end" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Date establishment phase completed</title>
+            </meta>
+        </property>
+
+        <property name="notes" type="text_editor">
+            <meta>
+                <title lang="en">Notes</title>
+            </meta>
+        </property>
+    </properties>
+</type>

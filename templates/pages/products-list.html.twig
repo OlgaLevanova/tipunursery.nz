@@ -1,0 +1,75 @@
+{% extends "layout.html.twig" %}
+
+{% set pageTitle = false %}
+
+<table>
+{% block content %}
+    <div class="container-xl / pt-6 pt-lg-7">
+        <h1 class="mb-4 text-blue-4">List of all plants</td>
+        <h2 class="mb-2 / ff-2 fs-35 text-blue-4">{{ content.title_available|default('Available now') }}</h2>
+
+        <table class="table table-hover table-striped">
+            <tr class="bg-primary">
+                <th class="text-white">Plant</th>
+                <th style="width:120px;" class="text-white text-center">Grade</th>
+                <th style="width:120px;" class="text-white text-center">Quantity</th>
+                <th style="width:120px;" class="text-white text-center">Price</th>
+            </tr>
+            {% for item in content.catalog_items|sort((a, b) => a.title <=> b.title) %}
+                {% if item.prices_options is defined %}
+                    {% for item2 in item.prices_options %}
+                        {% if item2.is_available %}
+                            <tr>
+                                <td>
+                                    {{ item.title }}{{ item.title_maori ? ' / ' ~ item.title_maori }}{{ item.title_english ? ' / ' ~ item.title_english }}
+                                </td>
+                                <td class="text-center">
+                                    {{ item2.bag_size|replace({
+                                        '_': ' '
+                                    }) }}
+                                </td>
+                                <td class="text-center">{{ item2.number }}</td>
+                                <td class="text-center">
+                                    ${{ item2.price }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </table>    
+
+        <h2 class="mt-8 mb-2 / ff-2 fs-35 text-blue-4">{{ content.title_growing|default('Still growing') }}</h2>
+
+        <table class="table table-hover table-striped">
+            <tr class="bg-primary text-white">
+                <th class="text-white">Plant</th>
+                <th style="width:120px;" class="text-white text-center">Grade</th>
+                <th style="width:120px;" class="text-white text-center">Quantity</th>
+                <th style="width:120px;" class="text-white text-center">Price</th>
+            </tr>
+            {% for item in content.catalog_items|sort((a, b) => a.title <=> b.title) %}
+                {% if item.prices_options is defined %}
+                    {% for item2 in item.prices_options %}
+                        {% if not item2.is_available %}
+                            <tr>
+                                <td>
+                                    {{ item.title }}{{ item.title_maori ? ' / ' ~ item.title_maori }}{{ item.title_english ? ' / ' ~ item.title_english }}
+                                </td>
+                                <td class="text-center">
+                                    {{ item2.bag_size|replace({
+                                        '_': ' '
+                                    }) }}
+                                </td>
+                                <td class="text-center">{{ item2.number }}</td>
+                                <td class="text-center">
+                                    ${{ item2.price }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
