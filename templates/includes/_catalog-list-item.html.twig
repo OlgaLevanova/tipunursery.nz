@@ -20,9 +20,15 @@
 		itemprop="name"
 		class="position-relative d-block h-100 / text-black text-decoration-none / bg-yellow-2 br-5 overflow-hidden img-hover"
 	>
-		<span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden">
+		<span class="d-block / py-2 px-2 / ratio ratio-1x1 / overflow-hidden{% if not item.image_preview %} bg-blue-4 br-5{% endif %}">
 			{% if item.image_preview %}
 				<img src="{{ item.image_preview.thumbnails['400x400.webp'] }}" alt="{{ item.title }}" class="w-100 h-100 object-fit-cover img-hover" loading="lazy">
+			{% else %}	
+				<div>
+                    <div class="position-absolute top-50 start-50 translate-middle w-100 px-4 text-white fs-21 fw-600 text-center">
+                    I'm looking for a good photo for {{ title }}.
+                    </div>
+                </div>
 			{% endif %}
 		</span>
 		<span class="d-block / px-3 py-4 / text-blue-4 fw-700 bg-yellow-2">
