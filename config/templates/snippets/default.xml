@@ -7,14 +7,12 @@
 
     <meta>
         <title lang="en">Default</title>
-        <title lang="de">Standard</title>
     </meta>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>
-                <title lang="de">Titel</title>
             </meta>
 
             <tag name="sulu.node.name"/>
@@ -23,7 +21,36 @@
         <property name="description" type="text_editor">
             <meta>
                 <title lang="en">Description</title>
-                <title lang="de">Beschreibung</title>
+            </meta>
+        </property>
+
+        <property name="email" type="text_line">
+            <meta>
+                <title lang="en">Email</title>
+            </meta>
+        </property>
+
+        <property name="phone" type="text_line">
+            <meta>
+                <title lang="en">Phone</title>
+            </meta>
+        </property>
+
+        <property name="address" type="text_line">
+            <meta>
+                <title lang="en">Address</title>
+            </meta>
+        </property>
+
+        <property name="facebook_link" type="text_line">
+            <meta>
+                <title lang="en">Facebook link</title>
+            </meta>
+        </property>
+
+        <property name="instagram_link" type="text_line">
+            <meta>
+                <title lang="en">Instagram link</title>
             </meta>
         </property>
     </properties>
