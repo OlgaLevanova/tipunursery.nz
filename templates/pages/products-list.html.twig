@@ -45,7 +45,6 @@
                 <th class="text-white">Plant</th>
                 <th style="width:120px;" class="text-white text-center">Grade</th>
                 <th style="width:120px;" class="text-white text-center">Quantity</th>
-                <th style="width:120px;" class="text-white text-center">Price</th>
             </tr>
             {% for item in content.catalog_items|sort((a, b) => a.title <=> b.title) %}
                 {% if item.prices_options is defined %}
@@ -61,9 +60,6 @@
                                     }) }}
                                 </td>
                                 <td class="text-center">{{ item2.number }}</td>
-                                <td class="text-center">
-                                    ${{ item2.price }}
-                                </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
