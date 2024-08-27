@@ -1,0 +1,45 @@
+{% extends "layout.html.twig" %}
+
+{% set pageTitle = false %}
+
+{% block content %}
+
+    {# Gallery #}
+    {% set gallery = [] %}
+    {% set gallery = content.gallery ? content.gallery %}
+
+    <div class="container-xl">
+        <h1 class="mt-7 mt-lg-11 mb-4 mb-lg-6 text-blue-4">{{ content.headline }}</h1>
+
+        <div>
+            {{ content.article|raw }}
+        </div>
+
+        {% if gallery|length > 0 %}
+
+            <h2 class="mt-7 mt-lg-11 mb-4 mb-lg-6 text-blue-4">{{ content.gallery_headline|default('My works') }}</h2>
+
+            <div class="mb-6 mb-lg-10">
+
+                <div class="row / pswp-gallery js-plants-gallery">
+                    {% for image in gallery %}
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="ratio ratio-1x1 / mb-4 / overflow-hidden / img-hover">
+                                <a href="{{ image.thumbnails['1200x.webp'] }}"
+                                   data-pswp-width="{{ image.fileVersion.properties.width }}"
+                                   data-pswp-height="{{ image.fileVersion.properties.height }}"
+                                   data-cropped="true"
+                                   target="_blank"
+                                   >
+                                    <img src="{{ image.thumbnails['400x.webp'] }}"
+                                         alt="{{ image.description }}" class="object-fit-cover w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
